@@ -15,7 +15,8 @@ public class FileManager {
     private File file;
 
     public FileManager() throws IOException {
-        file = new File("C:/Users/Dude/Desktop/myprogfile.txt");
+        file = new File("myprogfile.txt");
+        System.out.println("Prop File Loc.: "+file.getAbsolutePath());
         if(!file.exists()){
             writeNewFile();
         }
