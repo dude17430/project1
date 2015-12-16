@@ -98,24 +98,30 @@ public class GraphicsManager extends JComponent {
         //clear screen
         g.clearRect(0,0, game.getWindowWidth(), game.getWindowHeight());
         switch (game.getGameState()) {
+            //----General----
             case 0:// MM
                 drawMainMenu(g);
                 break;
+            case 100: //about
+                drawAbout(g);
+                break;
+            //----Agil----
             case 1: //agil
                 drawAgilGame(g);
                 break;
-            case 2:
-                drawAgilGame(g);
-                drawAgilPausedScreen(g);
-                break;
-            case 3:
+            case 2://deaded
                 drawAgilGame(g);
                 drawAgilRestart(g);
                 break;
-            case 4:
+            case 3://paused
+                drawAgilGame(g);
+                drawAgilPausedScreen(g);
+                break;
+            case 4://pregame
                 drawAgilGame(g);
                 try { drawAgilPreGame(g); } catch (FileNotFoundException e) { e.printStackTrace(); }
                 break;
+            //----Strat----
             case 10:
                 drawStratGame(g);
                 try { drawStratPreGame(g); } catch (FileNotFoundException e) { e.printStackTrace(); }
@@ -126,9 +132,6 @@ public class GraphicsManager extends JComponent {
             case 12:
                 drawStratGame(g);
                 drawStratMouseTower(g);
-                break;
-            case 100: //about
-                drawAbout(g);
                 break;
         }
     }
