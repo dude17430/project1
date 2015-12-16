@@ -53,8 +53,6 @@ public class StratCalc {
 
     public void getMap() {
 
-
-
     }
 
 
