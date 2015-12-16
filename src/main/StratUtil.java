@@ -67,10 +67,10 @@ public class StratUtil {
         jpTop.add(stratMoneyL);
         jpTop.add(stratRoundL);
 
-        JLabel T1L = new JLabel(new ImageIcon(getClass().getClassLoader().getResource("t1.png")));
-        JLabel T2L = new JLabel(new ImageIcon(getClass().getClassLoader().getResource("t2.png")));
-        JLabel T3L = new JLabel(new ImageIcon(getClass().getClassLoader().getResource("t3.png")));
-        JLabel T4L = new JLabel(new ImageIcon(getClass().getClassLoader().getResource("t4.png")));
+        JLabel T1L = new JLabel(new ImageIcon(getClass().getClassLoader().getResource("strat/t1.png")));
+        JLabel T2L = new JLabel(new ImageIcon(getClass().getClassLoader().getResource("strat/t2.png")));
+        JLabel T3L = new JLabel(new ImageIcon(getClass().getClassLoader().getResource("strat/t3.png")));
+        JLabel T4L = new JLabel(new ImageIcon(getClass().getClassLoader().getResource("strat/t4.png")));
 
         T1L.setAlignmentX(Component.CENTER_ALIGNMENT);
         T2L.setAlignmentX(Component.CENTER_ALIGNMENT);

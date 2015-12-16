@@ -65,25 +65,25 @@ public class GraphicsManager extends JComponent {
     }
 
     private void loadImages() throws IOException {
-        mmBGIMG = ImageIO.read(getClass().getClassLoader().getResource("bg2.jpg"));
-        playerIMG = ImageIO.read(getClass().getClassLoader().getResource("player.png"));
-        bgIMG = ImageIO.read(getClass().getClassLoader().getResource("BG-Game2.jpg"));
-        arrowLeft = ImageIO.read(getClass().getClassLoader().getResource("arrowLeft.png"));
-        arrowRight = ImageIO.read(getClass().getClassLoader().getResource("arrowRight.png"));
-        gravballred = ImageIO.read(getClass().getClassLoader().getResource("grav-ball-red.png"));
-        gravballblue = ImageIO.read(getClass().getClassLoader().getResource("grav-ball-blue.png"));
-        gravballgreen = ImageIO.read(getClass().getClassLoader().getResource("grav-ball-green.png"));
-        gravballyellow = ImageIO.read(getClass().getClassLoader().getResource("grav-ball-yellow.png"));
-        gravballpurple = ImageIO.read(getClass().getClassLoader().getResource("grav-ball-purple.png"));
+        mmBGIMG = ImageIO.read(getClass().getClassLoader().getResource("other/bg2.jpg"));
+        playerIMG = ImageIO.read(getClass().getClassLoader().getResource("agil/player.png"));
+        bgIMG = ImageIO.read(getClass().getClassLoader().getResource("agil/BG-Game2.jpg"));
+        arrowLeft = ImageIO.read(getClass().getClassLoader().getResource("other/arrowLeft.png"));
+        arrowRight = ImageIO.read(getClass().getClassLoader().getResource("other/arrowRight.png"));
+        gravballred = ImageIO.read(getClass().getClassLoader().getResource("agil/grav-ball-red.png"));
+        gravballblue = ImageIO.read(getClass().getClassLoader().getResource("agil/grav-ball-blue.png"));
+        gravballgreen = ImageIO.read(getClass().getClassLoader().getResource("agil/grav-ball-green.png"));
+        gravballyellow = ImageIO.read(getClass().getClassLoader().getResource("agil/grav-ball-yellow.png"));
+        gravballpurple = ImageIO.read(getClass().getClassLoader().getResource("agil/grav-ball-purple.png"));
         //
-        map1 = ImageIO.read(getClass().getClassLoader().getResource("map1.jpg"));
-        map1Thumb = ImageIO.read(getClass().getClassLoader().getResource("map1_thumb.jpg"));
-        map2 = ImageIO.read(getClass().getClassLoader().getResource("map2.jpg"));
-        map2Thumb = ImageIO.read(getClass().getClassLoader().getResource("map2_thumb.jpg"));
-        t1 = ImageIO.read(getClass().getClassLoader().getResource("t1.png"));
-        t2 = ImageIO.read(getClass().getClassLoader().getResource("t2.png"));
-        t3 = ImageIO.read(getClass().getClassLoader().getResource("t3.png"));
-        t4 = ImageIO.read(getClass().getClassLoader().getResource("t4.png"));
+        map1 = ImageIO.read(getClass().getClassLoader().getResource("strat/map1.jpg"));
+        map1Thumb = ImageIO.read(getClass().getClassLoader().getResource("strat/map1_thumb.jpg"));
+        map2 = ImageIO.read(getClass().getClassLoader().getResource("strat/map2.jpg"));
+        map2Thumb = ImageIO.read(getClass().getClassLoader().getResource("strat/map2_thumb.jpg"));
+        t1 = ImageIO.read(getClass().getClassLoader().getResource("strat/t1.png"));
+        t2 = ImageIO.read(getClass().getClassLoader().getResource("strat/t2.png"));
+        t3 = ImageIO.read(getClass().getClassLoader().getResource("strat/t3.png"));
+        t4 = ImageIO.read(getClass().getClassLoader().getResource("strat/t4.png"));
 
     }
 
