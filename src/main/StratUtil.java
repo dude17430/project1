@@ -107,6 +107,7 @@ public class StratUtil {
         towerthreeList = new ArrayList();
         towerfourList = new ArrayList();
         enemyList = new ArrayList();
+        enemyList.add(new Enemy(200,200,1));
     }
 
     public void update() {
@@ -144,16 +145,16 @@ public class StratUtil {
         int r = 3;
         switch (s){
             case "t1":
-                projectilesList.add(new TowerProjectile(x,y,r,s,this));
+                projectilesList.add(new TowerProjectile(x,y,r,s,this,sc));
                 break;
             case "t2":
-                projectilesList.add(new TowerProjectile(x,y,r,s,this));
+                projectilesList.add(new TowerProjectile(x,y,r,s,this,sc));
                 break;
             case "t3":
-                projectilesList.add(new TowerProjectile(x,y,r,s,this));
+                projectilesList.add(new TowerProjectile(x,y,r,s,this,sc));
                 break;
             case "t4":
-                projectilesList.add(new TowerProjectile(x,y,r,s,this));
+                projectilesList.add(new TowerProjectile(x,y,r,s,this,sc));
                 break;
         }
     }

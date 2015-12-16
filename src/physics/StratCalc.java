@@ -31,24 +31,31 @@ public class StratCalc {
         }
     }
 
-    public void projectilePather(TowerProjectile tp){
+    public double[] projectilePather(TowerProjectile tp){
         if(!(su.getEnemyList().isEmpty())){ //if enemy list is not emepty
             Enemy e = su.getEnemyList().get(0); //get first enemy
             //FROM
-            int px = tp.getX();
-            int py = tp.getY();
+            double px = tp.getX();
+            double py = tp.getY();
             //TO
-            int ex = e.getX();
-            int ey = e.getY();
+            double ex = e.getX();
+            double ey = e.getY();
             //DIFFERENCE
-            int dx = ex-px; //difference = from-to (current x - enemy x)
-            int dy = ey-py; //difference = from-to (current y - enemy y)
-            //DISTANCE
+            double dx = px-ex; //difference = from-to (current x - enemy x)
+            double dy = py-ey; //difference = from-to (current y - enemy y)
+
+            double[] i = {dx,dy};
+
+            return i;
+
+            /*//DISTANCE
             double distance = Math.sqrt( Math.pow(ex-px,2) + Math.pow(ey-py,2) );
             //RESULTANT
             double x = dx/distance;
-            double y = dy/distance;
+            double y = dy/distance;*/
         }
+        double[] i = {0,0};
+        return i;
     }
 
     /*

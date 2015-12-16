@@ -14,14 +14,18 @@ public class Enemy {
     private int speed;
     private boolean dead;
 
-    public Enemy(int strength){
+    public Enemy(int x, int y, int strength){
         this.strength = strength;
+        this.x = x;
+        this.y = y;
         speed = strength*2;
         dead = false;
+        radius = 5 + strength;
     }
 
     public void update(){
         speed = strength*2;
+        radius = 5 + strength;
         //move
     }
 

@@ -21,7 +21,7 @@ public class TowerFour {
 
     public void update(){
         if(System.currentTimeMillis()-lastShot>500){
-            su.newProjectile("t4",x,y);
+            su.newProjectile("t4",x+30,y+30);
         }
     }
 

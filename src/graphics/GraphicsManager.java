@@ -76,7 +76,7 @@ public class GraphicsManager extends JComponent {
         gravballyellow = ImageIO.read(getClass().getClassLoader().getResource("agil/grav-ball-yellow.png"));
         gravballpurple = ImageIO.read(getClass().getClassLoader().getResource("agil/grav-ball-purple.png"));
         //
-        map1 = ImageIO.read(getClass().getClassLoader().getResource("strat/map1.jpg"));
+        map1 = ImageIO.read(getClass().getClassLoader().getResource("strat/map1_perty.jpg"));
         map1Thumb = ImageIO.read(getClass().getClassLoader().getResource("strat/map1_thumb.jpg"));
         map2 = ImageIO.read(getClass().getClassLoader().getResource("strat/map2.jpg"));
         map2Thumb = ImageIO.read(getClass().getClassLoader().getResource("strat/map2_thumb.jpg"));
@@ -447,12 +447,12 @@ public class GraphicsManager extends JComponent {
         for (TowerFour go : su.getTowerfourList()){
             g.drawImage(t4,go.getX(),go.getY(),null);
         }
-        for (Enemy go: su.getEnemyList()){
-            g.setColor(Color.YELLOW);
-            g.fillArc(go.getX(),go.getY(),go.getRadius(),go.getRadius(),0,360);
-        }
         for (TowerProjectile go: su.getProjectileList()){
             g.setColor(Color.YELLOW);
+            g.fillArc((int) go.getX(),(int) go.getY(),go.getRadius(),go.getRadius(),0,360);
+        }
+        for (Enemy go: su.getEnemyList()){
+            g.setColor(Color.red);
             g.fillArc(go.getX(),go.getY(),go.getRadius(),go.getRadius(),0,360);
         }
 

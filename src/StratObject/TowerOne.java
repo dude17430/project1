@@ -1,6 +1,7 @@
 package StratObject;
 
 import main.StratUtil;
+import physics.StratCalc;
 
 /**
  * Created by Dude on 12/13/2015.
@@ -20,9 +21,13 @@ public class TowerOne {
     }
 
     public void update(){
-        if(System.currentTimeMillis()-lastShot>500){
-            su.newProjectile("t1",x,y);
+        if(su.getEnemyList().size()>0){
+            if(System.currentTimeMillis()-lastShot>5000){
+                lastShot = System.currentTimeMillis();
+                su.newProjectile("t1",x+30,y+30);
+            }
         }
+
     }
 
     public int getX() {
