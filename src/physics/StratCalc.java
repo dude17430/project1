@@ -51,16 +51,9 @@ public class StratCalc {
         }
     }
 
-    public void getMap(){
-        for(int i = 0; i<10; i++){
-            System.out.println("Hello World!");
-
-
-        }
-
-
-
-    }
+    /*
+    * deleted it :P
+    */
 
 }
 /*
