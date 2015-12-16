@@ -51,6 +51,13 @@ public class StratCalc {
         }
     }
 
+    public void getMap() {
+
+
+
+    }
+
+
 }
 /*
 * KEEP CONSTANT SPEED
