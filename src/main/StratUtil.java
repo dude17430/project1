@@ -26,7 +26,6 @@ public class StratUtil {
     private StratCalc sc;
     private int money;
     private int round;
-    private TowerProjectile[] projectileList;
 
 
     public StratUtil(Game game){
