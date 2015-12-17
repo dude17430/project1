@@ -1,4 +1,5 @@
 import main.Game;
+import physics.MapFunction;
 
 import java.io.IOException;
 
@@ -15,6 +16,8 @@ public class Launcher {
         //handle args
         Game game = new Game();//pass perams from launcher if needed here
         game.launch();
+        //MapFunction mp = new MapFunction();
+        //mp.populateMap("map_1_path");
     }
 
 }

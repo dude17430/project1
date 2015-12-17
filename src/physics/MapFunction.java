@@ -1,0 +1,178 @@
+package physics;
+
+
+import com.sun.tools.doclets.internal.toolkit.util.DocFinder;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+/*
+ * Created by DustinHarris on 12/15/15.
+ */
+
+
+public class MapFunction {
+    ArrayList<ArrayList<Integer>> map = new ArrayList<ArrayList<Integer>>();
+    ArrayList<ArrayList<Integer>> path = new ArrayList<ArrayList<Integer>>();
+    ArrayList<Integer> coordinates = new ArrayList<Integer>();
+
+
+    public void populateMap(String fileName) throws IOException {
+
+        BufferedImage mapIMG = ImageIO.read(getClass().getClassLoader().getResource("strat/"+fileName+".jpg"));
+        int width = mapIMG.getWidth();
+        int height = mapIMG.getHeight();
+
+        for (int x = 0; x < width; x++) {
+            ArrayList<Integer> map_y = new ArrayList<Integer>();
+            for (int y = 0; y < height; y++) {
+
+                Color mycolor = new Color(mapIMG.getRGB(x,y));
+                int red = mycolor.getRed();
+                int green = mycolor.getGreen();
+                int blue = mycolor.getBlue();
+
+                if((red<=15)&&(green>=240)&&(blue<=15)){
+                    map_y.add(2);
+                    coordinates = new ArrayList<Integer>();
+                    coordinates.add(x);
+                    coordinates.add(y);
+                    path.add(coordinates);
+                }
+                else if((red<=15)&&(green<=15)&&(blue<=15)){
+                    map_y.add(1);
+                }
+                else if((red>=240)&&(green<=15)&&(blue<=15)){
+                    map_y.add(-1);
+                }
+                else{
+                    map_y.add(0);
+                }
+            }
+            map.add(map_y);
+        }
+
+
+        System.out.println(valueAtCoordinates(818,567));
+        findPath();
+
+    }
+
+    public void findPath(){
+
+        int j = 0;
+        for (int i = 0; j >=0; i++) {
+
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println(path.get(i));
+
+
+
+
+                for (int y = (pathCoordinates(i,1)-1); y < (pathCoordinates(i,1)+2); y++) {
+
+                    System.out.println();
+                    for (int x = (pathCoordinates(i,0)-1); x < (pathCoordinates(i,0)+2); x++) {
+
+
+
+
+
+                        if(    !((x == (pathCoordinates(i,0)))    &&     (y == (pathCoordinates(i,1)))   )        ) {
+
+
+
+                            System.out.print(valueAtCoordinates(x,y));
+
+                            if( valueAtCoordinates(x,y) == 1){
+                                addPathCoordinates(x,y);
+                                changeMapValue(x,y,0);
+                                x+=3;
+                                y+=3;
+
+
+
+
+
+                            }
+                            else if( valueAtCoordinates(x,y) == -1){
+                                addPathCoordinates(-1,-1);
+                                changeMapValue(x,y,0);
+                                System.out.println();
+                                System.out.println();
+                                System.out.println();
+                                System.out.print(path.get(i+1));
+
+                                y+=3;
+                                x+=3;
+                                j=-1;
+
+
+
+                            }
+
+
+                        }
+                        else{
+                            System.out.print(" ");
+                        }
+                    }
+                }
+
+
+
+
+        }
+
+
+
+
+
+
+    }
+
+    public void changeMapValue(int x, int y , int val){
+        ArrayList<Integer> temp = new  ArrayList(map.get(x));
+        temp.set(y,val);
+        map.set(x,temp);
+    }
+
+
+    public void addPathCoordinates(int x,int y){
+        ArrayList<Integer> temp = new ArrayList<Integer>();
+        temp.add(x);
+        temp.add(y);
+        path.add(temp);
+    }
+
+    public Integer valueAtCoordinates(int x, int y){
+
+        if(x == -1 || x == map.size()){
+            return 0;
+
+        }
+        else if(y == -1 || y == map.get(1).size()){
+            return 0;
+        }
+
+
+        return map.get(x).get(y);
+
+
+    }
+
+
+    public Integer pathCoordinates(int numberStep,int xORy){
+        return path.get(numberStep).get(xORy);
+    }
+
+
+
+
+}
