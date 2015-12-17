@@ -130,6 +130,9 @@ public class StratUtil {
         for(Iterator<TowerProjectile> it = projectilesList.iterator(); it.hasNext();){
             TowerProjectile temp = it.next();
             temp.update();
+            if(temp.getDead()){
+                it.remove();
+            }
         }
         for(Iterator<Enemy> it = enemyList.iterator(); it.hasNext();){
             Enemy e = it.next();

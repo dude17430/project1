@@ -22,7 +22,7 @@ public class TowerOne {
 
     public void update(){
         if(su.getEnemyList().size()>0){
-            if(System.currentTimeMillis()-lastShot>5000){
+            if(System.currentTimeMillis()-lastShot>2000){
                 lastShot = System.currentTimeMillis();
                 su.newProjectile("t1",x+30,y+30);
             }

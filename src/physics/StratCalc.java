@@ -26,6 +26,7 @@ public class StratCalc {
             double distance = Math.sqrt((dx*dx)+(dy*dy));
             if (distance < e.getRadius() + e.getRadius()){
                 e.setDead(true);
+                tp.setDead(true);
                 System.out.println("projectile collided with enemy!");
             }
         }
@@ -38,41 +39,22 @@ public class StratCalc {
             double px = tp.getX();
             double py = tp.getY();
             //TO
-            double ex = e.getX();
-            double ey = e.getY();
+            double ex = e.getX()+e.getRadius();
+            double ey = e.getY()+e.getRadius();
             //DIFFERENCE
-            double dx = px-ex; //difference = from-to (current x - enemy x)
-            double dy = py-ey; //difference = from-to (current y - enemy y)
-
-            double[] i = {dx,dy};
-
+            double dx = ex-px; //difference = from-to (current x - enemy x)
+            double dy = ey-py; //difference = from-to (current y - enemy y)
+            //DISTANCE
+            double dis = Math.sqrt(Math.pow(dx,2)+Math.pow(dy,2));
+            //DIRECTIONALITY
+            double dirX = dx/dis;
+            double diry = dy/dis;
+            //returning shit
+            double[] i = {dirX,diry};
             return i;
-
-            /*//DISTANCE
-            double distance = Math.sqrt( Math.pow(ex-px,2) + Math.pow(ey-py,2) );
-            //RESULTANT
-            double x = dx/distance;
-            double y = dy/distance;*/
         }
         double[] i = {0,0};
         return i;
     }
 
-    /*
-    * deleted it :P
-    */
-
 }
-/*
-* KEEP CONSTANT SPEED
-* if (!(slopeX + slopY == speed))
-* slopX + SlopY > speed
-*   SlopX - (speed - (SlopX + SlopeY) /2 )
-*   SlopY - (speed - (SlopX + SlopeY) /2 )
-* else
-*   SlopX + ((SlopX + SlopeY) - speed /2 )
-*   SlopY + ((SlopX + SlopeY) - speed /2 )
-*   -Devide by 2 is to split the diff such
-*       that keeps the ratio of diff between
-*       x and y
-*/
