@@ -5,6 +5,7 @@ import AgilObject.Player;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -30,7 +31,7 @@ public class KeyManager implements KeyListener{
         toweronmouse = null;
     }
 
-    public void manage() {
+    public void manage() throws IOException {
         for (int code : keyDownArray) {
             switch (game.getGameState()){
                 case 0://main menu
@@ -92,12 +93,24 @@ public class KeyManager implements KeyListener{
                     break;
                 case 32://spacebar (select)
                     if(mainMenuEntry == 0){  //agil
-                        game.changeGameState(4);
+                        try {
+                            game.changeGameState(4);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
                     }else if (mainMenuEntry == 1){ //strat
-                        game.changeGameState(10);
+                        try {
+                            game.changeGameState(10);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
                     }else if (mainMenuEntry == 2){ //mem
                     }else if (mainMenuEntry == 3){ //about
-                        game.changeGameState(100);
+                        try {
+                            game.changeGameState(100);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
                     }
                     break;
                 default:
@@ -119,11 +132,23 @@ public class KeyManager implements KeyListener{
                     break;
                 case 32://spacebar (select)
                     if(agilRestartMenuEntry == 0){  //restart
-                        game.changeGameState(0);
-                        game.changeGameState(1);
+                        try {
+                            game.changeGameState(0);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        try {
+                            game.changeGameState(1);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
                         agilRestartMenuEntry = 0;
                     } else if (agilRestartMenuEntry == 1){ //main menu
-                        game.changeGameState(0);
+                        try {
+                            game.changeGameState(0);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
                         agilRestartMenuEntry = 0;
                     }
                     break;
@@ -135,7 +160,11 @@ public class KeyManager implements KeyListener{
         else if (game.getGameState() == 3){
             switch (e.getKeyCode()){
                 case 80://p
-                    game.changeGameState(1);
+                    try {
+                        game.changeGameState(1);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                     break;
                 default:
                     System.out.println("Unknown Key Pressed - Char: '"+e.getKeyChar()+"' - Code: '"+e.getKeyCode()+"'");
@@ -145,10 +174,18 @@ public class KeyManager implements KeyListener{
         else if (game.getGameState() == 4){
             switch (e.getKeyCode()) {
                 case 32:
-                    game.changeGameState(1);
+                    try {
+                        game.changeGameState(1);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                     break;
                 case 27:
-                    game.changeGameState(0);
+                    try {
+                        game.changeGameState(0);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                     break;
                 default:
                     System.out.println("Unknown Key Pressed - Char: '"+e.getKeyChar()+"' - Code: '"+e.getKeyCode()+"'");
@@ -158,10 +195,18 @@ public class KeyManager implements KeyListener{
         else if (game.getGameState() == 10){//pre
             switch (e.getKeyCode()){
                 case 27:
-                    game.changeGameState(0);
+                    try {
+                        game.changeGameState(0);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                     break;
                 case 32:
-                    game.changeGameState(11);
+                    try {
+                        game.changeGameState(11);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                     break;
                 default:
                     System.out.println("Unknown Key Pressed - Char: '"+e.getKeyChar()+"' - Code: '"+e.getKeyCode()+"'");
@@ -171,10 +216,18 @@ public class KeyManager implements KeyListener{
         else if (game.getGameState() == 11){//setup
             switch (e.getKeyCode()){
                 case 27:
-                    game.changeGameState(10);
+                    try {
+                        game.changeGameState(10);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                     break;
                 case 32:
-                    game.changeGameState(12);
+                    try {
+                        game.changeGameState(12);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                     break;
                 case 65:
                     if(stratmapselected > 1)
@@ -195,11 +248,19 @@ public class KeyManager implements KeyListener{
                     if(toweronmouse != null){
                         toweronmouse = null;
                     }else{
-                        game.changeGameState(11);
+                        try {
+                            game.changeGameState(11);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
                     }
                     break;
                 case 80:
-                    game.changeGameState(13);
+                    try {
+                        game.changeGameState(13);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                     break;
                 case 49:
                     toweronmouse = "t1";
@@ -224,7 +285,11 @@ public class KeyManager implements KeyListener{
         else if (game.getGameState() == 100){
             switch (e.getKeyCode()) {
                 case 27:
-                    game.changeGameState(0);
+                    try {
+                        game.changeGameState(0);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                     break;
                 default:
                     System.out.println("Unknown Key Pressed - Char: '"+e.getKeyChar()+"' - Code: '"+e.getKeyCode()+"'");
@@ -248,7 +313,6 @@ public class KeyManager implements KeyListener{
     public int getAgilRestartMenuEntry(){return agilRestartMenuEntry;}
     public int getStratmapselected(){ return stratmapselected; }
     public String getToweronmouse(){return toweronmouse;}
-
     public void clearTowerOnMouse() {
         toweronmouse = null;
     }

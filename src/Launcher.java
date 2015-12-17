@@ -13,11 +13,8 @@ public class Launcher {
     }
 
     public  Launcher() throws IOException {
-        //handle args
         Game game = new Game();//pass perams from launcher if needed here
         game.launch();
-        //MapFunction mp = new MapFunction();
-        //mp.populateMap("map_1_path");
     }
 
 }

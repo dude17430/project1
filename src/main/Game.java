@@ -41,7 +41,7 @@ public class Game {
         gameState = 0;
     }
 
-    public void launch() throws FileNotFoundException {
+    public void launch() throws IOException {
         createWindow();
         loop();
     }
@@ -57,7 +57,7 @@ public class Game {
         frame.pack();
     }
 
-    private void loop() throws FileNotFoundException {
+    private void loop() throws IOException {
         long lastSuccess = System.currentTimeMillis();
         int i = 0;
         while(gameLoop){
@@ -84,7 +84,7 @@ public class Game {
         return rand.nextInt((max-min)+1)+min;
     }
 
-    public void changeGameState(int i){
+    public void changeGameState(int i) throws IOException {
         System.out.println("Game State Change from/to: "+gameState+"/"+i);
         if(i==1) {
             if (getGameState() != 3) {//new-game
@@ -122,6 +122,7 @@ public class Game {
         else if (i == 12){//
             if (getGameState() != 13) {//new-game
                 su.newGame();
+                su.setMap(keyManager.getStratmapselected());
             } else { //pause->agil
 //                su.endPause();
             }

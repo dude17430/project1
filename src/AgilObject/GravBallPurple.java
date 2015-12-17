@@ -3,6 +3,7 @@ package AgilObject;
 import physics.GravBallPhysics;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  * Created by Dude on 12/6/2015.
@@ -31,7 +32,7 @@ public class GravBallPurple {
         this.needRemoval = needRemoval;
     }
 
-    public void update() throws FileNotFoundException {
+    public void update() throws IOException {
         _x += speedX;
         _y += speedY;
         //call bounds check;

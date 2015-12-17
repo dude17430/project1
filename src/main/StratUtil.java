@@ -1,10 +1,12 @@
 package main;
 
 import StratObject.*;
+import physics.MapFunction;
 import physics.StratCalc;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -26,7 +28,8 @@ public class StratUtil {
     private StratCalc sc;
     private int money;
     private int round;
-
+    private MapFunction mp;
+    private long timer42;
 
     public StratUtil(Game game){
         this.game = game;
@@ -39,6 +42,8 @@ public class StratUtil {
         sc = new StratCalc(this);
 
         stratSidePane = makeStrategySidePane();
+
+        timer42 = System.currentTimeMillis();
     }
 
     public void updateStats(){
@@ -107,7 +112,7 @@ public class StratUtil {
         towerthreeList = new ArrayList();
         towerfourList = new ArrayList();
         enemyList = new ArrayList();
-        enemyList.add(new Enemy(200,200,5));
+
     }
 
     public void update() {
@@ -140,6 +145,13 @@ public class StratUtil {
             if(e.getDead()){
                 it.remove();
             }
+        }
+//        -------------add enemies here----------------
+
+
+        if (System.currentTimeMillis()-timer42>400){
+            timer42 = System.currentTimeMillis();
+            enemyList.add(new Enemy(mp.getPath(), 2)); //             adds a new enemy to the board with the path <path> and strength (int)
         }
         updateStats();
     }
@@ -202,4 +214,5 @@ public class StratUtil {
     public ArrayList<TowerProjectile> getProjectileList() {
         return projectilesList;
     }
+    public void setMap(int i) throws IOException {mp= new MapFunction(i);}
 }

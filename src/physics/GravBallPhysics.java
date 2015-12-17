@@ -5,6 +5,7 @@ import main.Game;
 import AgilObject.*;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  * Created by Dude on 12/4/2015.
@@ -36,7 +37,7 @@ public class GravBallPhysics {
         }
     }
 
-    public void checkPcollided(GravBallRed gb) throws FileNotFoundException {
+    public void checkPcollided(GravBallRed gb) throws IOException {
         int temp1 = gb.getWidth()/2;
         int temp2 = gb.getHeight()/2;
         double dx = (p.getX()+p.getWidth()/2) - (gb.getX()+temp1);
@@ -63,7 +64,7 @@ public class GravBallPhysics {
         }
     }
 
-    public void checkPcollided(GravBallBlue gb) throws FileNotFoundException {
+    public void checkPcollided(GravBallBlue gb) throws IOException {
         int temp1 = gb.getWidth()/2;
         int temp2 = gb.getHeight()/2;
         double dx = (p.getX()+p.getWidth()/2) - (gb.getX()+temp1);
@@ -91,7 +92,7 @@ public class GravBallPhysics {
 
     }
 
-    public void checkPcollided(GravBallGreen gb) throws FileNotFoundException {
+    public void checkPcollided(GravBallGreen gb) throws IOException {
         int temp1 = gb.getWidth()/2;
         int temp2 = gb.getHeight()/2;
         double dx = (p.getX()+p.getWidth()/2) - (gb.getX()+temp1);
@@ -118,7 +119,7 @@ public class GravBallPhysics {
         }
     }
 
-    public void checkPcollided(GravBallYellow gb) throws FileNotFoundException {
+    public void checkPcollided(GravBallYellow gb) throws IOException {
         int temp1 = gb.getWidth()/2;
         int temp2 = gb.getHeight()/2;
         double dx = (p.getX()+p.getWidth()/2) - (gb.getX()+temp1);
@@ -145,7 +146,7 @@ public class GravBallPhysics {
         }
     }
 
-    public void checkPcollided(GravBallPurple gb) throws FileNotFoundException {
+    public void checkPcollided(GravBallPurple gb) throws IOException {
         int temp1 = gb.getWidth()/2;
         int temp2 = gb.getHeight()/2;
         double dx = (p.getX()+p.getWidth()/2) - (gb.getX()+temp1);

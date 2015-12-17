@@ -84,7 +84,7 @@ public class AgilUtil {
         agilShieldLSetText("Currently Shielded: "+ shield.getEnabled());
     }
 
-    public void collision(String s, String id, Game game) throws FileNotFoundException {
+    public void collision(String s, String id, Game game) throws IOException {
         if(s.equals("red")){
             if(!shield.getEnabled()){
                 if(lives > 0){
@@ -137,7 +137,7 @@ public class AgilUtil {
         }
     }
 
-    public void update() throws FileNotFoundException {
+    public void update() throws IOException {
         pPhyscics.checkBounds();
         shield.update();
         for(Iterator<GravBallRed> it = gravballredList.iterator(); it.hasNext();) {
