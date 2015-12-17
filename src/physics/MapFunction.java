@@ -1,12 +1,9 @@
 package physics;
 
 
-import com.sun.tools.doclets.internal.toolkit.util.DocFinder;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -72,69 +69,40 @@ public class MapFunction {
             System.out.println();
             System.out.println(path.get(i));
 
+            for (int y = (pathCoordinates(i,1)-1); y < (pathCoordinates(i,1)+2); y++) {
 
+                System.out.println();
+                for (int x = (pathCoordinates(i,0)-1); x < (pathCoordinates(i,0)+2); x++) {
 
+                    if(    !((x == (pathCoordinates(i,0)))    &&     (y == (pathCoordinates(i,1)))   )        ) {
+                        System.out.print(valueAtCoordinates(x,y));
 
-                for (int y = (pathCoordinates(i,1)-1); y < (pathCoordinates(i,1)+2); y++) {
-
-                    System.out.println();
-                    for (int x = (pathCoordinates(i,0)-1); x < (pathCoordinates(i,0)+2); x++) {
-
-
-
-
-
-                        if(    !((x == (pathCoordinates(i,0)))    &&     (y == (pathCoordinates(i,1)))   )        ) {
-
-
-
-                            System.out.print(valueAtCoordinates(x,y));
-
-                            if( valueAtCoordinates(x,y) == 1){
-                                addPathCoordinates(x,y);
-                                changeMapValue(x,y,0);
-                                x+=3;
-                                y+=3;
-
-
-
-
-
-                            }
-                            else if( valueAtCoordinates(x,y) == -1){
-                                addPathCoordinates(-1,-1);
-                                changeMapValue(x,y,0);
-                                System.out.println();
-                                System.out.println();
-                                System.out.println();
-                                System.out.print(path.get(i+1));
-
-                                y+=3;
-                                x+=3;
-                                j=-1;
-
-
-
-                            }
-
-
+                        if( valueAtCoordinates(x,y) == 1){
+                            addPathCoordinates(x,y);
+                            changeMapValue(x,y,0);
+                            x+=3;
+                            y+=3;
                         }
-                        else{
-                            System.out.print(" ");
+
+                        else if( valueAtCoordinates(x,y) == -1){
+                            addPathCoordinates(-1,-1);
+                            changeMapValue(x,y,0);
+                            System.out.println();
+                            System.out.println();
+                            System.out.println();
+                            System.out.print(path.get(i+1));
+
+                            y+=3;
+                            x+=3;
+                            j=-1;
                         }
                     }
+                    else{
+                        System.out.print(" ");
+                    }
                 }
-
-
-
-
+            }
         }
-
-
-
-
-
-
     }
 
     public void changeMapValue(int x, int y , int val){
@@ -160,11 +128,7 @@ public class MapFunction {
         else if(y == -1 || y == map.get(1).size()){
             return 0;
         }
-
-
         return map.get(x).get(y);
-
-
     }
 
 
