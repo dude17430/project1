@@ -20,7 +20,7 @@ public class Enemy {
         this.y = y;
         speed = strength*2;
         dead = false;
-        radius = 5 + strength;
+        radius = (5 + (strength*2));
     }
 
     public void update(){

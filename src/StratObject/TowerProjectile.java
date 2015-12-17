@@ -43,12 +43,11 @@ public class TowerProjectile {
 //                    slope[1] += diff/2;
 //                } else {System.out.println("TP: herp-a-derp");}
 //            }
-            int whichIsGreater = 0;
             int j = 0;
             for(int i = 0; i<100; i++){
                 if(slope[0] > slope[1]){
-                    whichIsGreater = 0;
-                    if(slope[0]*(i/100)<speed){
+                    System.out.println("slope x greater");
+                    if(slope[0]-(slope[0]*(i/100))<speed){
                         j = i;
                         break;
                     } else {
@@ -56,8 +55,8 @@ public class TowerProjectile {
                     }
                 }
                 if(slope[1] > slope[0]){
-                    whichIsGreater = 1;
-                    if(slope[1]*(i/100)<speed){
+                    System.out.println("slope y grater");
+                    if(slope[1]-(slope[1]*(i/100))<speed){
                         j = i;
                         break;
                     } else {
@@ -65,12 +64,10 @@ public class TowerProjectile {
                     }
                 }
             }
-            if(j !=0) {
-                slope[0] = slope[0] * (j / 100);
-                slope[1] = slope[1] * (j / 100);
-            }
+            slope[0] = slope[0]-(slope[0]*(j/100));
+            slope[1] = slope[1]-(slope[1]*(j/100));
             System.out.println("move in x: "+slope[0]+"move in y: "+slope[1]);
-            x += slope[0];
+            x -= slope[0];
             y -= slope[1];
         }
 //        su.getSC().checkPCollision(this);

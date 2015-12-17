@@ -447,13 +447,13 @@ public class GraphicsManager extends JComponent {
         for (TowerFour go : su.getTowerfourList()){
             g.drawImage(t4,go.getX(),go.getY(),null);
         }
-        for (TowerProjectile go: su.getProjectileList()){
-            g.setColor(Color.YELLOW);
-            g.fillArc((int) go.getX(),(int) go.getY(),go.getRadius(),go.getRadius(),0,360);
-        }
         for (Enemy go: su.getEnemyList()){
             g.setColor(Color.red);
-            g.fillArc(go.getX(),go.getY(),go.getRadius(),go.getRadius(),0,360);
+            g.fillArc(go.getX(),go.getY(),(go.getRadius()*2),(go.getRadius()*2),0,360);
+        }
+        for (TowerProjectile go: su.getProjectileList()){
+            g.setColor(Color.YELLOW);
+            g.fillArc((int) go.getX(),(int) go.getY(),(go.getRadius()*2),(go.getRadius()*2),0,360);
         }
 
         //mouse towers last (so on  top)

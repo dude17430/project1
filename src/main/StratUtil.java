@@ -107,7 +107,7 @@ public class StratUtil {
         towerthreeList = new ArrayList();
         towerfourList = new ArrayList();
         enemyList = new ArrayList();
-        enemyList.add(new Enemy(200,200,1));
+        enemyList.add(new Enemy(200,200,5));
     }
 
     public void update() {
