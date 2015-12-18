@@ -11,11 +11,13 @@ public class TowerFour {
     private int y;
     private StratUtil su;
     private long lastShot;
+    private int checkRadius;
 
     public TowerFour(int x, int y, StratUtil su){
         this.x = x;
         this.y = y;
         this.su = su;
+        checkRadius = 300;
         lastShot = System.currentTimeMillis();
     }
 
@@ -31,8 +33,10 @@ public class TowerFour {
     public int getX() {
         return x;
     }
-
     public int getY() {
         return y;
+    }
+    public int getCheckRadius(){
+        return checkRadius;
     }
 }
