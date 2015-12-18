@@ -74,6 +74,6 @@ public class TowerTwo {
 
     public int getCheckRadius(){
         return checkRadius;
-    }
+    } //Right here!!---------------------
 }
 
