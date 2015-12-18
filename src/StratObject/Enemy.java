@@ -38,6 +38,7 @@ public class Enemy {
 //    }
 
     public void update(){
+        radius = ((strength*5));
         speed = strength*2;
 //        radius = 5 + strength;
         //move
