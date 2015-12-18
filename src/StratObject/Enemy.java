@@ -38,6 +38,7 @@ public class Enemy {
 //    }
 
     public void update(){
+        radius = ((strength*5));
         speed = strength*2;
         //move
         if(pathLocation + speed > (path.size()-2)){dead = true;} //Checks if the enemies next position in the path is greater then the position of the last availabe coordinates in the path
