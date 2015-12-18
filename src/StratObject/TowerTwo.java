@@ -11,18 +11,18 @@ public class TowerTwo {
     private int y;
     private StratUtil su;
     private long lastShot;
-    private int checkRadius;
+    private int fireRadius;
 
     public TowerTwo(int x, int y, StratUtil su, int towerTwoCheckRadius){
         this.x = x;
         this.y = y;
         this.su = su;
-        this.checkRadius = towerTwoCheckRadius; //sets the radius of the tower to be checked
+        this.fireRadius = towerTwoCheckRadius; //sets the radius of the tower to be checked
         lastShot = System.currentTimeMillis();
     }
 
     public void update(){
-        if(su.getEnemyList().size()>0 && checkForEnemies()){
+        if(!(su.getEnemyList().isEmpty()) && checkForEnemies()){
             if(System.currentTimeMillis()-lastShot>1000){
                 lastShot = System.currentTimeMillis();
                 su.newProjectile("t2",x+30,y+30);
@@ -33,10 +33,8 @@ public class TowerTwo {
     public boolean checkForEnemies(){  //checks to see if enemy is within a towers radius
         if(!(su.getEnemyList().isEmpty())) { //if enemy list is not emepty
             for (int i = 0; i < su.getEnemyList().size(); i++) {
-                double dx = (su.getEnemyList().get(i).getX() - getX());//gets the x distance between the tower and enemy
-                double dy = (su.getEnemyList().get(i).getY() - getY());//gets the y distance between the tower and enemy
-                double distance = Math.sqrt((dx*dx)+(dy*dy)); //gets the absolute distance between the tower and enemy
-                if (distance < checkRadius + su.getEnemyList().get(i).getRadius()){//checks if the radius to be checked plus the enemies radius is greater than the absolute distance between the enemy and tower
+                double distance = su.getEnemyList().get(i).getDistance(x,y);
+                if (distance < fireRadius + su.getEnemyList().get(i).getRadius()){//checks if the radius to be checked plus the enemies radius is greater than the absolute distance between the enemy and tower
                     return true;
                 }
             }
@@ -51,7 +49,7 @@ public class TowerTwo {
         return y;
     }
     public int getCheckRadius(){
-        return checkRadius;
+        return fireRadius;
     }
 }
 

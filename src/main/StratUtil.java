@@ -34,6 +34,7 @@ public class StratUtil {
     private int TowerTwoCheckRadius;
     private int TowerThreeCheckRadius;
     private int TowerFourCheckRadius;
+    private boolean testEnemy = true;
 
     public StratUtil(Game game){
         this.game = game;
@@ -157,11 +158,20 @@ public class StratUtil {
         }
 //        -------------add enemies here----------------
 
+//        if (testEnemy){
+//            enemyList.add(new Enemy(mp.getPath(), 4));
+//            testEnemy = false;
+//        }
 
-        if (System.currentTimeMillis()-timer42>5000){
+        if (System.currentTimeMillis()-timer42>1000){
             timer42 = System.currentTimeMillis();
             enemyList.add(new Enemy(mp.getPath(), 4)); //adds a new enemy to the board with the path <path> and strength (int)
         }
+
+
+
+
+
         updateStats();//side pane
     }
 

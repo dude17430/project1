@@ -23,19 +23,12 @@ public class Enemy {
     public Enemy(ArrayList<ArrayList<Integer>> path, int strength){
         this.strength = strength;
         this.path = path;
-        radius = 0; // sets the enemies radius
+        this.radius = 0; // sets the enemies radius
         speed = 0;
-        this.x = path.get(0).get(0)-radius;
-        this.y = path.get(0).get(1)-radius;
+        this.x = path.get(0).get(0);
+        this.y = path.get(0).get(1);
         dead = false;
-
-
-
     }
-//    public void update() {
-//        x = 200;
-//        y = 200;
-//    }
 
     public void update(){
         radius = ((strength*5));
@@ -45,10 +38,10 @@ public class Enemy {
 
         else { //If more coordinates are avilable in the path, the enemy adds the speed to the path location, reads coodinates from path at that position, and sets its coordinates to the ones provided in the path
             pathLocation += speed;
-            x = path.get(pathLocation).get(0)-radius;
-            y = path.get(pathLocation).get(1)-radius;
-
+            x = path.get(pathLocation).get(0);
+            y = path.get(pathLocation).get(1);
         }
+
     }
 
     public void collided(){
@@ -59,10 +52,18 @@ public class Enemy {
         }
     }
 
-    public int getX() { return x; }
-    public int getY() { return y; }
+    public int getX() { return x-radius; }
+    public int getY() { return y-radius; }
     public boolean getDead() { return dead; }//so can be removed in game.update()
     public void setDead(Boolean b) { dead = b; }//insta-kill.... for use l8r
     public int getRadius() { return radius; }//collision/graphics
     public int getStrength() { return strength; }//for graphics
+    public double getDistance(int dx, int dy){
+        dx+=30;
+        dy+=30;
+        dx = (x - dx);//gets the x distance between the tower and enemy
+        dy = (y - dy);//gets the y distance between the tower and enemy
+        return Math.sqrt((dx*dx)+(dy*dy)); //gets the absolute distance between the tower and enemy
+
+    }
 }
