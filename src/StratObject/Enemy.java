@@ -32,33 +32,24 @@ public class Enemy {
 
 
     }
-    public void update() {
-        x = 200;
-        y = 200;
-    }
-
-
-
-
-
-//    public void update(){
-//        speed = strength*2;
-////        radius = 5 + strength;
-//        //move
-//        if(pathLocation + speed > (path.size()-2)){dead = true;} //Checks if the enemies next position in the path is greater then the position of the last availabe coordinates in the path
-//
-//        else { //If more coordinates are avilable in the path, the enemy adds the speed to the path location, reads coodinates from path at that position, and sets its coordinates to the ones provided in the path
-//            pathLocation += speed;
-//            x = path.get(pathLocation).get(0)-radius;
-//            y = path.get(pathLocation).get(1)-radius;
-//
-//        }
+//    public void update() {
+//        x = 200;
+//        y = 200;
 //    }
 
+    public void update(){
+        speed = strength*2;
+//        radius = 5 + strength;
+        //move
+        if(pathLocation + speed > (path.size()-2)){dead = true;} //Checks if the enemies next position in the path is greater then the position of the last availabe coordinates in the path
 
+        else { //If more coordinates are avilable in the path, the enemy adds the speed to the path location, reads coodinates from path at that position, and sets its coordinates to the ones provided in the path
+            pathLocation += speed;
+            x = path.get(pathLocation).get(0)-radius;
+            y = path.get(pathLocation).get(1)-radius;
 
-
-
+        }
+    }
 
     public void collided(){
         if(strength>1){

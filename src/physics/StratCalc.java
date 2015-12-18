@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class StratCalc {
     private StratUtil su;
 
-    public StratCalc(ArrayList<Enemy> enemyList, StratUtil su) {//---------------------------
+    public StratCalc( StratUtil su) {//---------------------------
         this.su = su;
     }
 
