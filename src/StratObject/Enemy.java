@@ -23,10 +23,10 @@ public class Enemy {
     public Enemy(ArrayList<ArrayList<Integer>> path, int strength){
         this.strength = strength;
         this.path = path;
-        radius = ((strength*5)); // sets the enemies radius
+//        radius = ((strength*5)); // sets the enemies radius
+//        speed = strength*2;
         this.x = path.get(0).get(0)-radius;
         this.y = path.get(0).get(1)-radius;
-        speed = strength*2;
         dead = false;
 
 
