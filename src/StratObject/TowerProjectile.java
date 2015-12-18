@@ -40,6 +40,9 @@ public class TowerProjectile {
         } else {
             x = (lastDirX * speed) + x;
             y = (lastDirY * speed) + y;
+            if(x < 0 || y < 0 || x > su.getGame().getWindowWidth() || y > su.getGame().getWindowHeight()){
+                dead=true;
+            }
         }
         su.getSC().checkPCollision(this);
     }

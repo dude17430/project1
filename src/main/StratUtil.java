@@ -149,9 +149,9 @@ public class StratUtil {
 //        -------------add enemies here----------------
 
 
-        if (System.currentTimeMillis()-timer42>400){
+        if (System.currentTimeMillis()-timer42>5000){
             timer42 = System.currentTimeMillis();
-            enemyList.add(new Enemy(mp.getPath(), 5)); //adds a new enemy to the board with the path <path> and strength (int)
+            enemyList.add(new Enemy(mp.getPath(), 2)); //adds a new enemy to the board with the path <path> and strength (int)
         }
         updateStats();//side pane
     }
@@ -192,27 +192,13 @@ public class StratUtil {
         game.getKeyManager().clearTowerOnMouse();
     }
 
-    public ArrayList<TowerOne> getToweroneList() {
-        return toweroneList;
-    }
-    public ArrayList<TowerTwo> getTowertwoList() {
-        return towertwoList;
-    }
-    public ArrayList<TowerThree> getTowerthreeList() {
-        return towerthreeList;
-    }
-    public ArrayList<TowerFour> getTowerfourList() {
-        return towerfourList;
-    }
-
-    public StratCalc getSC() {
-        return sc;
-    }
-
+    public ArrayList<TowerOne> getToweroneList() {return toweroneList;}
+    public ArrayList<TowerTwo> getTowertwoList() {return towertwoList;}
+    public ArrayList<TowerThree> getTowerthreeList() {return towerthreeList;}
+    public ArrayList<TowerFour> getTowerfourList() {return towerfourList;}
     public ArrayList<Enemy> getEnemyList() { return enemyList; }
-
-    public ArrayList<TowerProjectile> getProjectileList() {
-        return projectilesList;
-    }
+    public ArrayList<TowerProjectile> getProjectileList() {return projectilesList;}
+    public StratCalc getSC() {return sc;}
     public void setMap(int i) throws IOException {mp= new MapFunction(i);}
+    public Game getGame(){return game;}
 }
