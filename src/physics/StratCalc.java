@@ -38,27 +38,23 @@ public class StratCalc {
     }
 
     public double[] projectilePather(TowerProjectile tp){
-        if(!(su.getEnemyList().isEmpty())){ //if enemy list is not emepty
-            Enemy e = su.getEnemyList().get(0); //get first enemy
-            //FROM
-            double px = tp.getX();
-            double py = tp.getY();
-            //TO
-            double ex = e.getX()+e.getRadius();
-            double ey = e.getY()+e.getRadius();
-            //DIFFERENCE
-            double dx = ex-px; //difference = to-from (enemy x - current x)
-            double dy = ey-py; //difference = to-from (enemy y - current y)
-            //DISTANCE
-            double dis = Math.sqrt(Math.pow(dx,2)+Math.pow(dy,2));
-            //DIRECTIONALITY
-            double dirX = dx/dis;
-            double diry = dy/dis;
-            //returning shit
-            double[] i = {dirX,diry};
-            return i;
-        }
-        double[] i = {0,0};
+        Enemy e = su.getEnemyList().get(0); //get first enemy
+        //FROM
+        double px = tp.getX();
+        double py = tp.getY();
+        //TO
+        double ex = e.getX()+e.getRadius();
+        double ey = e.getY()+e.getRadius();
+        //DIFFERENCE
+        double dx = ex-px; //difference = to-from (enemy x - current x)
+        double dy = ey-py; //difference = to-from (enemy y - current y)
+        //DISTANCE
+        double dis = Math.sqrt(Math.pow(dx,2)+Math.pow(dy,2));
+        //DIRECTIONALITY
+        double dirX = dx/dis;
+        double diry = dy/dis;
+        //returning shit
+        double[] i = {dirX,diry};
         return i;
     }
 

@@ -48,7 +48,7 @@ public class StratUtil {
 
     public void updateStats(){
         stratMoneyL.setText("Money: "+money);
-        stratRoundL.setText("Round: "+money);
+        stratRoundL.setText("Round: "+round);
     }
 
     private JPanel makeStrategySidePane(){
@@ -153,7 +153,7 @@ public class StratUtil {
             timer42 = System.currentTimeMillis();
             enemyList.add(new Enemy(mp.getPath(), 5)); //adds a new enemy to the board with the path <path> and strength (int)
         }
-        updateStats();
+        updateStats();//side pane
     }
 
     public void newProjectile(String s, int x, int y) {

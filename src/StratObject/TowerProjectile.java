@@ -15,6 +15,8 @@ public class TowerProjectile {
     private StratCalc sc;
     private double speed;
     private boolean dead;
+    private double lastDirX;
+    private double lastDirY;
 
     public TowerProjectile(double x, double y, int radius, String s, StratUtil su, StratCalc sc){
         this.x = x;
@@ -24,12 +26,21 @@ public class TowerProjectile {
         speed = 8;
         this.radius = radius;
         dead = false;
+        lastDirX = 0;
+        lastDirY = 0;
     }
 
     public void update(){
-        double[] dir = sc.projectilePather(this);
-        x = (dir[0]*speed)+x;
-        y = (dir[1]*speed)+y;
+        if(!(su.getEnemyList().isEmpty())) {
+            double[] dir = sc.projectilePather(this);
+            x = (dir[0] * speed) + x;
+            y = (dir[1] * speed) + y;
+            lastDirX = dir[0];
+            lastDirY = dir[1];
+        } else {
+            x = (lastDirX * speed) + x;
+            y = (lastDirY * speed) + y;
+        }
         su.getSC().checkPCollision(this);
     }
 
