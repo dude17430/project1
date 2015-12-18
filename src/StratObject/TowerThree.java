@@ -20,8 +20,11 @@ public class TowerThree {
     }
 
     public void update(){
-        if(System.currentTimeMillis()-lastShot>500){
-            su.newProjectile("t3",x,y);
+        if(su.getEnemyList().size()>0){
+            if(System.currentTimeMillis()-lastShot>500){
+                lastShot = System.currentTimeMillis();
+                su.newProjectile("t3",x+30,y+30);
+            }
         }
     }
 
