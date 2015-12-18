@@ -449,6 +449,18 @@ public class GraphicsManager extends JComponent {
         }
         for (Enemy go: su.getEnemyList()){
             g.setColor(Color.red);
+            if(go.getStrength() == 2){
+                g.setColor(Color.blue);
+            }
+            if(go.getStrength() == 3){
+                g.setColor(Color.green);
+            }
+            if(go.getStrength() == 4){
+                g.setColor(Color.yellow);
+            }
+            if(go.getStrength() == 5){
+                g.setColor(Color.pink);
+            }
             g.fillArc(go.getX(),go.getY(),(go.getRadius()*2),(go.getRadius()*2),0,360);
         }
         for (TowerProjectile go: su.getProjectileList()){

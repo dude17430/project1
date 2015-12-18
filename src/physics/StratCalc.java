@@ -25,7 +25,7 @@ public class StratCalc {
             double dy = (e.getY()+e.getRadius()) - (tp.getY()+temp2);
             double distance = Math.sqrt((dx*dx)+(dy*dy));
             if (distance < e.getRadius() + e.getRadius()){
-                e.setDead(true);
+                e.collided();//strength-- OR kill
                 tp.setDead(true);
                 System.out.println("projectile collided with enemy!");
             }

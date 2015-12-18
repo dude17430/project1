@@ -56,7 +56,8 @@ public class Enemy {
 
     public int getX() { return x; }
     public int getY() { return y; }
-    public boolean getDead() { return dead; }
-    public void setDead(Boolean b) { dead = b; }
-    public int getRadius() { return radius; }
+    public boolean getDead() { return dead; }//so can be removed in game.update()
+    public void setDead(Boolean b) { dead = b; }//insta-kill.... for use l8r
+    public int getRadius() { return radius; }//collision/graphics
+    public int getStrength() { return strength; }//for graphics
 }

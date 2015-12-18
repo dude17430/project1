@@ -150,7 +150,15 @@ public class MapFunction {
         return path;
     }
 
-
+    /*
+    think you could make a func() that when given (int[] coordinate, int offset) return map????
+        where:
+            coords[0] = x coordinate, coords[y] = y coordinate
+            offset = how many pixals farther back in path
+    that i want to do is when an enemy decreases strength they are able to spawn a new enemy at a given offset
+    so you would need to create a map for a given x,y and offset then return it so we can spawn the enemy where
+    supposed to and give him the map
+     */
 
 }
 
