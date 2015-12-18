@@ -28,7 +28,7 @@ public class TowerTwo {
 
         if(su.getEnemyList().size()>0 && this.checkForEnemies()){
 
-            this.checkForEnemies();
+
 
 
             if(System.currentTimeMillis()-lastShot>1000){
@@ -45,13 +45,13 @@ public class TowerTwo {
 
             for (int i = 0; i < su.getEnemyList().size(); i++) {
 
-                double dx = (su.getEnemyList().get(i).getX()+su.getEnemyList().get(i).getRadius()) - (this.getX()+this.getCheckRadius());//dx = (tower_x_coordinate + (tower radius)) - (enemy_x_coordinate + (enemy radius))---------------
-                double dy = (su.getEnemyList().get(i).getY()+su.getEnemyList().get(i).getRadius()) - (this.getY()+this.getCheckRadius());
+                double dx = (su.getEnemyList().get(i).getX()+su.getEnemyList().get(i).getRadius()) - (getX()+getCheckRadius());//dx = (tower_x_coordinate + (tower radius)) - (enemy_x_coordinate + (enemy radius))---------------
+                double dy = (su.getEnemyList().get(i).getY()+su.getEnemyList().get(i).getRadius()) - (getY()+getCheckRadius());
                 double distance = Math.sqrt((dx*dx)+(dy*dy));
 
-                System.out.println((su.getEnemyList().get(i).getX()+su.getEnemyList().get(i).getRadius())+" , "+(this.getX()+this.getCheckRadius()));
+                System.out.println(dx+" , "+dy+" , "+distance);
 
-                if (distance < this.getCheckRadius() + su.getEnemyList().get(i).getRadius() ){
+                if (distance < checkRadius + su.getEnemyList().get(i).getRadius() ){
                     return true;
                 }
             }
