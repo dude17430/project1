@@ -13,11 +13,11 @@ public class TowerTwo {
     private long lastShot;
     private int checkRadius;
 
-    public TowerTwo(int x, int y, StratUtil su){
+    public TowerTwo(int x, int y, StratUtil su, int towerTwoCheckRadius){
         this.x = x;
         this.y = y;
         this.su = su;
-        this.checkRadius = 300; //sets the radius of the tower to be checked
+        this.checkRadius = towerTwoCheckRadius; //sets the radius of the tower to be checked
         lastShot = System.currentTimeMillis();
     }
 

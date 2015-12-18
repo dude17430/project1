@@ -413,19 +413,34 @@ public class GraphicsManager extends JComponent {
             switch(km.getToweronmouse()){
                 case "t1":
                     g.drawImage(t1, x, y, null);
-                    g.fillArc((x+30)-100,(y+30)-100,100*2,100*2,0,360);
+                    g.fillArc((x+30)-su.getTowerOneCheckRadius(),
+                            (y+30)-su.getTowerOneCheckRadius(),
+                            su.getTowerOneCheckRadius()*2,
+                            su.getTowerOneCheckRadius()*2,0,360);
                     break;
                 case "t2":
                     g.drawImage(t2, x, y, null);
-                    g.fillArc((x+30)-300,(y+30)-300,300*2,300*2,0,360);
+                    g.fillArc((x+30)-su.getTowerTwoCheckRadius(),
+                            (y+30)-su.getTowerTwoCheckRadius(),
+                            su.getTowerTwoCheckRadius()*2,
+                            su.getTowerTwoCheckRadius()*2,
+                            0,360);
                     break;
                 case "t3":
                     g.drawImage(t3, x, y, null);
-                    g.fillArc((x+30)-100,(y+30)-100,100*2,100*2,0,360);
+                    g.fillArc((x+30)-su.getTowerThreeCheckRadius(),
+                            (y+30)-su.getTowerThreeCheckRadius(),
+                            su.getTowerThreeCheckRadius()*2,
+                            su.getTowerThreeCheckRadius()*2,
+                            0,360);
                     break;
                 case "t4":
                     g.drawImage(t4, x, y, null);
-                    g.fillArc((x+30)-300,(y+30)-300,300*2,300*2,0,360);
+                    g.fillArc((x+30)-su.getTowerFourCheckRadius(),
+                            (y+30)-su.getTowerFourCheckRadius(),
+                            su.getTowerFourCheckRadius()*2,
+                            su.getTowerFourCheckRadius()*2,
+                            0,360);
                     break;
             }
         }

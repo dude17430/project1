@@ -30,6 +30,10 @@ public class StratUtil {
     private int round;
     private MapFunction mp;
     private long timer42;
+    private int TowerOneCheckRadius;
+    private int TowerTwoCheckRadius;
+    private int TowerThreeCheckRadius;
+    private int TowerFourCheckRadius;
 
     public StratUtil(Game game){
         this.game = game;
@@ -40,6 +44,11 @@ public class StratUtil {
         towerfourList = new ArrayList();
         enemyList = new ArrayList<>();
         sc = new StratCalc(this);
+
+        TowerOneCheckRadius = 100;
+        TowerTwoCheckRadius = 300;
+        TowerThreeCheckRadius = 100;
+        TowerFourCheckRadius = 300;
 
         stratSidePane = makeStrategySidePane();
 
@@ -177,28 +186,32 @@ public class StratUtil {
     public void newTower(String s) {
         switch (s){
             case "t1":
-                toweroneList.add(new TowerOne(game.getMouseX()-30,game.getMouseY()-30,this));
+                toweroneList.add(new TowerOne(game.getMouseX()-30,game.getMouseY()-30,this,TowerOneCheckRadius));
                 break;
             case "t2":
-                towertwoList.add(new TowerTwo(game.getMouseX()-30,game.getMouseY()-30,this));
+                towertwoList.add(new TowerTwo(game.getMouseX()-30,game.getMouseY()-30,this,TowerTwoCheckRadius));
                 break;
             case "t3":
-                towerthreeList.add(new TowerThree(game.getMouseX()-30,game.getMouseY()-30,this));
+                towerthreeList.add(new TowerThree(game.getMouseX()-30,game.getMouseY()-30,this,TowerThreeCheckRadius));
                 break;
             case "t4":
-                towerfourList.add(new TowerFour(game.getMouseX()-30,game.getMouseY()-30,this));
+                towerfourList.add(new TowerFour(game.getMouseX()-30,game.getMouseY()-30,this,TowerFourCheckRadius));
                 break;
         }
         game.getKeyManager().clearTowerOnMouse();
     }
 
-    public ArrayList<TowerOne> getToweroneList() {return toweroneList;}
-    public ArrayList<TowerTwo> getTowertwoList() {return towertwoList;}
-    public ArrayList<TowerThree> getTowerthreeList() {return towerthreeList;}
-    public ArrayList<TowerFour> getTowerfourList() {return towerfourList;}
+    public ArrayList<TowerOne> getToweroneList() { return toweroneList; }
+    public ArrayList<TowerTwo> getTowertwoList() { return towertwoList; }
+    public ArrayList<TowerThree> getTowerthreeList() { return towerthreeList; }
+    public ArrayList<TowerFour> getTowerfourList() { return towerfourList; }
+    public int getTowerOneCheckRadius() { return TowerOneCheckRadius; }
+    public int getTowerTwoCheckRadius() { return TowerTwoCheckRadius; }
+    public int getTowerThreeCheckRadius() { return TowerThreeCheckRadius; }
+    public int getTowerFourCheckRadius() { return TowerFourCheckRadius; }
     public ArrayList<Enemy> getEnemyList() { return enemyList; }
-    public ArrayList<TowerProjectile> getProjectileList() {return projectilesList;}
-    public StratCalc getSC() {return sc;}
-    public void setMap(int i) throws IOException {mp= new MapFunction(i);}
-    public Game getGame(){return game;}
+    public ArrayList<TowerProjectile> getProjectileList() { return projectilesList; }
+    public StratCalc getSC() { return sc; }
+    public void setMap(int i) throws IOException { mp= new MapFunction(i); }
+    public Game getGame(){ return game; }
 }
