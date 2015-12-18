@@ -58,4 +58,45 @@ public class StratCalc {
         return i;
     }
 
+    public boolean checkMouseOverT1(TowerOne go){
+        int towerX = go.getX();
+        int towerY = go.getY();
+        int mouseX = su.getGame().getMouseX();
+        int mouseY = su.getGame().getMouseY();
+        if(mouseX>towerX && mouseY>towerY && mouseX<towerX+60 && mouseY<towerY+60){
+            return true;
+        }
+        return false;
+    }
+    public boolean checkMouseOverT2(TowerTwo go){
+        int towerX = go.getX();
+        int towerY = go.getY();
+        int mouseX = su.getGame().getMouseX();
+        int mouseY = su.getGame().getMouseY();
+        if(mouseX>towerX && mouseY>towerY && mouseX<towerX+60 && mouseY<towerY+60){
+            return true;
+        }
+        return false;
+    }
+    public boolean checkMouseOverT3(TowerThree go){
+        int towerX = go.getX();
+        int towerY = go.getY();
+        int mouseX = su.getGame().getMouseX();
+        int mouseY = su.getGame().getMouseY();
+        if(mouseX>towerX && mouseY>towerY && mouseX<towerX+60 && mouseY<towerY+60){
+            return true;
+        }
+        return false;
+    }
+    public boolean checkMouseOverT4(TowerFour go){
+        int towerX = go.getX();
+        int towerY = go.getY();
+        int mouseX = su.getGame().getMouseX();
+        int mouseY = su.getGame().getMouseY();
+        if(mouseX>towerX && mouseY>towerY && mouseX<towerX+60 && mouseY<towerY+60){
+            return true;
+        }
+        return false;
+    }
+
 }

@@ -132,11 +132,12 @@ public class GraphicsManager extends JComponent {
             case 12:
                 drawStratGame(g);
                 drawStratMouseTower(g);
+                drawStratTowerRadius(g);
                 break;
         }
     }
 
-//---------------Menus
+    //---------------General
     private void drawAbout(Graphics g) {
         drawAgilGame(g);
         g.setColor(new Color(0.75f,0.75f,0.75f,0.75f));
@@ -235,7 +236,7 @@ public class GraphicsManager extends JComponent {
         }
 
     }
-//---------------Agil
+    //---------------Agil
     private void drawAgilPreGame(Graphics g) throws FileNotFoundException {
         drawAgilGame(g);
         Color bgOverlayColor = new Color(0.25f,0.25f,0.75f,0.75f);
@@ -469,5 +470,48 @@ public class GraphicsManager extends JComponent {
         }
 
         //mouse towers last (so on  top)
+    }
+
+    private void drawStratTowerRadius(Graphics g) {
+        for (TowerOne go : su.getToweroneList()){
+            if(su.getSC().checkMouseOverT1(go)){
+                g.setColor(new Color(0.1764706f, 1.0f, 0.02745098f, 0.50f));
+                g.fillArc((go.getX()+30)-go.getCheckRadius(),
+                        (go.getY()+30)-go.getCheckRadius(),
+                        go.getCheckRadius()*2,
+                        go.getCheckRadius()*2,
+                        0,360);
+            }
+        }
+        for (TowerTwo go : su.getTowertwoList()){
+            if(su.getSC().checkMouseOverT2(go)){
+                g.setColor(new Color(0.1764706f, 1.0f, 0.02745098f, 0.50f));
+                g.fillArc((go.getX()+30)-go.getCheckRadius(),
+                        (go.getY()+30)-go.getCheckRadius(),
+                        go.getCheckRadius()*2,
+                        go.getCheckRadius()*2,
+                        0,360);
+            }
+        }
+        for (TowerThree go : su.getTowerthreeList()){
+            if(su.getSC().checkMouseOverT3(go)){
+                g.setColor(new Color(0.1764706f, 1.0f, 0.02745098f, 0.50f));
+                g.fillArc((go.getX()+30)-go.getCheckRadius(),
+                        (go.getY()+30)-go.getCheckRadius(),
+                        go.getCheckRadius()*2,
+                        go.getCheckRadius()*2,
+                        0,360);
+            }
+        }
+        for (TowerFour go : su.getTowerfourList()){
+            if(su.getSC().checkMouseOverT4(go)){
+                g.setColor(new Color(0.1764706f, 1.0f, 0.02745098f, 0.50f));
+                g.fillArc((go.getX()+30)-go.getCheckRadius(),
+                        (go.getY()+30)-go.getCheckRadius(),
+                        go.getCheckRadius()*2,
+                        go.getCheckRadius()*2,
+                        0,360);
+            }
+        }
     }
 }
