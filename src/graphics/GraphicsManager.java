@@ -407,20 +407,25 @@ public class GraphicsManager extends JComponent {
 
     private void drawStratMouseTower(Graphics g) {
         if(km.getToweronmouse() != null){
+            g.setColor(new Color(0.1764706f, 1.0f, 0.02745098f, 0.50f));
             int x = game.getMouseX()-30;
             int y = game.getMouseY()-30;
             switch(km.getToweronmouse()){
                 case "t1":
                     g.drawImage(t1, x, y, null);
+                    g.fillArc((x+30)-100,(y+30)-100,100*2,100*2,0,360);
                     break;
                 case "t2":
                     g.drawImage(t2, x, y, null);
+                    g.fillArc((x+30)-300,(y+30)-300,300*2,300*2,0,360);
                     break;
                 case "t3":
                     g.drawImage(t3, x, y, null);
+                    g.fillArc((x+30)-100,(y+30)-100,100*2,100*2,0,360);
                     break;
                 case "t4":
                     g.drawImage(t4, x, y, null);
+                    g.fillArc((x+30)-300,(y+30)-300,300*2,300*2,0,360);
                     break;
             }
         }

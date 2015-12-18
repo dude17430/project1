@@ -151,7 +151,7 @@ public class StratUtil {
 
         if (System.currentTimeMillis()-timer42>5000){
             timer42 = System.currentTimeMillis();
-            enemyList.add(new Enemy(mp.getPath(), 2)); //adds a new enemy to the board with the path <path> and strength (int)
+            enemyList.add(new Enemy(mp.getPath(), 4)); //adds a new enemy to the board with the path <path> and strength (int)
         }
         updateStats();//side pane
     }

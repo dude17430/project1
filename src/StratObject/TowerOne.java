@@ -17,7 +17,7 @@ public class TowerOne {
         this.x = x;
         this.y = y;
         this.su = su;
-        this.checkRadius = 100; //sets the radius of the tower to be checked
+        this.checkRadius = 100; //sets the radius of the tower to be checked,drawStratMouseTower
         lastShot = System.currentTimeMillis();
     }
 
