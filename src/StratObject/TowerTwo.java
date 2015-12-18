@@ -1,7 +1,7 @@
 package StratObject;
 
 import main.StratUtil;
-import physics.StratCalc;
+
 /**
  * Created by Dude on 12/13/2015.
  */
@@ -13,12 +13,11 @@ public class TowerTwo {
     private long lastShot;
     private int checkRadius;
 
-
     public TowerTwo(int x, int y, StratUtil su){
         this.x = x;
         this.y = y;
         this.su = su;
-        this.checkRadius = 100; //sets the radius of the tower to be checked
+        this.checkRadius = 300; //sets the radius of the tower to be checked
         lastShot = System.currentTimeMillis();
     }
 
@@ -44,12 +43,6 @@ public class TowerTwo {
         }
         return false;
     }
-
-
-
-
-
-
 
     public int getX() {
         return x;
