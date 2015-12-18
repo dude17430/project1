@@ -147,6 +147,8 @@ public class StratUtil {
             }
         }
 //        -------------add enemies here----------------
+
+
         if (System.currentTimeMillis()-timer42>400){
             timer42 = System.currentTimeMillis();
             enemyList.add(new Enemy(mp.getPath(), 2)); //             adds a new enemy to the board with the path <path> and strength (int)

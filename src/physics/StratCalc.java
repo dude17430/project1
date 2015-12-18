@@ -4,6 +4,11 @@ import StratObject.Enemy;
 import StratObject.TowerProjectile;
 import main.StratUtil;
 
+import StratObject.*; // This imports all the objects into class
+
+
+
+
 import java.util.ArrayList;
 
 /**
@@ -12,7 +17,7 @@ import java.util.ArrayList;
 public class StratCalc {
     private StratUtil su;
 
-    public StratCalc(StratUtil su) {
+    public StratCalc(ArrayList<Enemy> enemyList, StratUtil su) {//---------------------------
         this.su = su;
     }
 
@@ -42,8 +47,8 @@ public class StratCalc {
             double ex = e.getX()+e.getRadius();
             double ey = e.getY()+e.getRadius();
             //DIFFERENCE
-            double dx = ex-px; //difference = from-to (current x - enemy x)
-            double dy = ey-py; //difference = from-to (current y - enemy y)
+            double dx = ex-px; //difference = to-from (enemy x - current x)
+            double dy = ey-py; //difference = to-from (enemy y - current y)
             //DISTANCE
             double dis = Math.sqrt(Math.pow(dx,2)+Math.pow(dy,2));
             //DIRECTIONALITY
