@@ -19,29 +19,35 @@ public class TowerTwo {
         this.x = x;
         this.y = y;
         this.su = su;
-        checkRadius = 300;
+        this.checkRadius = 100; //sets the radius of the tower to be checked
         lastShot = System.currentTimeMillis();
     }
 
     public void update(){
-        if(su.getEnemyList().size()>0 && this.checkForEnemies()){
+
+
+        if(su.getEnemyList().size()>0 && checkForEnemies()){
+
+
+
+
             if(System.currentTimeMillis()-lastShot>1000){
                 lastShot = System.currentTimeMillis();
                 su.newProjectile("t2",x+30,y+30);
             }
         }
+
     }
 
     public boolean checkForEnemies(){  //checks to see if enemy is within a towers radius
+
         if(!(su.getEnemyList().isEmpty())) { //if enemy list is not emepty
+
             for (int i = 0; i < su.getEnemyList().size(); i++) {
-                double dx = (su.getEnemyList().get(i).getX()+su.getEnemyList().get(i).getRadius()) - (getX()+getCheckRadius());//dx = (tower_x_coordinate + (tower radius)) - (enemy_x_coordinate + (enemy radius))---------------
-                double dy = (su.getEnemyList().get(i).getY()+su.getEnemyList().get(i).getRadius()) - (getY()+getCheckRadius());
+                double dx = (su.getEnemyList().get(i).getX() - getX());//gets the x distance between the tower and enemy
+                double dy = (su.getEnemyList().get(i).getY() - getY());//gets the y distance between the tower and enemy
                 double distance = Math.sqrt((dx*dx)+(dy*dy));
-
-                System.out.println(dx+" , "+dy+" , "+distance);
-
-                if (distance < checkRadius + su.getEnemyList().get(i).getRadius() ){
+                if (distance < checkRadius + su.getEnemyList().get(i).getRadius()){
                     return true;
                 }
             }
@@ -49,14 +55,21 @@ public class TowerTwo {
         return false;
     }
 
+
+
+
+
+
+
     public int getX() {
         return x;
     }
     public int getY() {
         return y;
     }
+
     public int getCheckRadius(){
         return checkRadius;
-    } //Right here!!---------------------
+    } //Right here!!--------------------
 }
 
