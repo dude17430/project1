@@ -23,7 +23,7 @@ public class Enemy {
     public Enemy(ArrayList<ArrayList<Integer>> path, int strength){
         this.strength = strength;
         this.path = path;
-        radius = ((strength*10));
+        radius = ((strength*10)); // sets the enemies radius
         this.x = path.get(0).get(0)-radius;
         this.y = path.get(0).get(1)-radius;
         speed = strength*2;
@@ -39,7 +39,6 @@ public class Enemy {
 
     public void update(){
         speed = strength*2;
-//        radius = 5 + strength;
         //move
         if(pathLocation + speed > (path.size()-2)){dead = true;} //Checks if the enemies next position in the path is greater then the position of the last availabe coordinates in the path
 
