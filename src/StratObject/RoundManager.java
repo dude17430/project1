@@ -34,7 +34,7 @@ public class RoundManager {
                 su.spawnNewEnemy(spawnArray.get(0));
                 spawnArray.remove(0);
             } else {
-                if(su.getEnemyList().size() == 0 && moveOn == true){
+                if(su.getEnemyList().size()  == 0 && moveOn == true){
                     moveOn = false;
                     round++;
                     calcNewRound();

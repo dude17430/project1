@@ -32,6 +32,7 @@ public class TowerProjectile {
         lastDirY = 0;
     }
 
+
     public void update(){
         if(!(su.getEnemyList().isEmpty())) {
             double[] dir = sc.projectilePather(this);

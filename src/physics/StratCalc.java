@@ -41,7 +41,7 @@ public class StratCalc {
 
 
          //get first enemy
-            Enemy e = su.getEnemyList().get(18);
+        Enemy e = su.getEnemyList().get(0);
 
 
         //Find the absolute closest enemy
