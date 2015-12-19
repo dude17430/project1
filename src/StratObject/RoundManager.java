@@ -42,7 +42,7 @@ public class RoundManager {
     }
 
     public int resetRound(){
-        round = 0;
+        round = 1;
         return round;
     }
 
