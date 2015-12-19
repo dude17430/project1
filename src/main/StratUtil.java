@@ -34,25 +34,25 @@ public class StratUtil {
     private int TowerThreeCheckRadius;
     private int TowerFourCheckRadius;
     private RoundManager rm;
+    private long testTimer;
 
     public StratUtil(Game game){
         this.game = game;
+        sc = new StratCalc(this);
         rm = new RoundManager(this);
         projectilesList = new ArrayList();
         toweroneList = new ArrayList();
         towertwoList = new ArrayList();
         towerthreeList = new ArrayList();
         towerfourList = new ArrayList();
-        enemyList = new ArrayList<>();
-        sc = new StratCalc(this);
-
+        enemyList = new ArrayList();
         TowerOneCheckRadius = 100;
         TowerTwoCheckRadius = 300;
         TowerThreeCheckRadius = 100;
         TowerFourCheckRadius = 300;
 
         stratSidePane = makeStrategySidePane();
-
+        testTimer = System.currentTimeMillis();
     }
 
     public void updateStats(){
@@ -157,7 +157,11 @@ public class StratUtil {
             }
         }
 //        -------------add enemies here----------------
-
+//      steady spawn timer - REMEMBER: COMMENT/UNCOMMENT ROUND UPDATING
+        if(System.currentTimeMillis()-testTimer>2000){
+            testTimer = System.currentTimeMillis();
+            spawnNewEnemy(2);
+        }
 //        if (testEnemy){
 //            enemyList.add(new Enemy(mp.getPath(), 4));
 //            testEnemy = false;
