@@ -29,15 +29,15 @@ public class StratUtil {
     private int money;
     private int round;
     private MapFunction mp;
-    private long timer42;
     private int TowerOneCheckRadius;
     private int TowerTwoCheckRadius;
     private int TowerThreeCheckRadius;
     private int TowerFourCheckRadius;
-    private boolean testEnemy = true;
+    private RoundManager rm;
 
     public StratUtil(Game game){
         this.game = game;
+        rm = new RoundManager(this);
         projectilesList = new ArrayList();
         toweroneList = new ArrayList();
         towertwoList = new ArrayList();
@@ -53,7 +53,6 @@ public class StratUtil {
 
         stratSidePane = makeStrategySidePane();
 
-        timer42 = System.currentTimeMillis();
     }
 
     public void updateStats(){
@@ -115,7 +114,7 @@ public class StratUtil {
 
     public void newGame() {
         money = 0;
-        round = 0;
+        round = rm.resetRound();
         projectilesList = new ArrayList();
         toweroneList = new ArrayList();
         towertwoList = new ArrayList();
@@ -126,6 +125,7 @@ public class StratUtil {
     }
 
     public void update() {
+        round = rm.update();
         for(Iterator<TowerOne> it = toweroneList.iterator(); it.hasNext();){
             TowerOne temp = it.next();
             temp.update();
@@ -162,16 +162,6 @@ public class StratUtil {
 //            enemyList.add(new Enemy(mp.getPath(), 4));
 //            testEnemy = false;
 //        }
-
-        if (System.currentTimeMillis()-timer42>1000){
-            timer42 = System.currentTimeMillis();
-            enemyList.add(new Enemy(mp.getPath(), 4)); //adds a new enemy to the board with the path <path> and strength (int)
-        }
-
-
-
-
-
         updateStats();//side pane
     }
 
@@ -209,6 +199,10 @@ public class StratUtil {
                 break;
         }
         game.getKeyManager().clearTowerOnMouse();
+    }
+
+    public void spawnNewEnemy(int strength){
+        enemyList.add(new Enemy(mp.getPath(), strength)); //adds a new enemy to the board with the path <path> and strength (int)
     }
 
     public ArrayList<TowerOne> getToweroneList() { return toweroneList; }

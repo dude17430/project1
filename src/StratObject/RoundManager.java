@@ -1,0 +1,58 @@
+package StratObject;
+
+import main.StratUtil;
+
+import java.util.ArrayList;
+
+/**
+ * Created by dude1_000 on 12/18/2015.
+ */
+public class RoundManager {
+
+    private StratUtil su;
+    private int round;
+    private long lastSpawnTime;
+    private long spawnLimiter;
+    private ArrayList<Integer> spawnArray;
+
+    public RoundManager(StratUtil su){
+        this.su = su;
+        round = 1;
+        spawnLimiter = 5000;
+        lastSpawnTime = System.currentTimeMillis();
+        spawnArray = new ArrayList<Integer>();
+        calcNewRound();
+    }
+
+    public int update(){
+        spawnLimiter = 500;
+        if (System.currentTimeMillis()-lastSpawnTime>spawnLimiter){
+            lastSpawnTime = System.currentTimeMillis();
+            if(!spawnArray.isEmpty()){
+                su.spawnNewEnemy(spawnArray.get(0));
+                spawnArray.remove(0);
+            } else {
+                if(su.getEnemyList().size() == 0){
+                    round++;
+                    calcNewRound();
+                }
+            }
+        }
+        return round;
+    }
+
+    public int resetRound(){
+        round = 0;
+        return round;
+    }
+
+    public void calcNewRound(){
+        for(int i = 0; i<round*4; i++){
+            if(round > 1) {
+                double j = Math.floor(Math.random() * (round - 1) + (round + 1));
+                spawnArray.add((int) j);
+            } else { spawnArray.add(1); }
+        }
+    }
+
+}
