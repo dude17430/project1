@@ -6,6 +6,8 @@ import physics.StratCalc;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -103,6 +105,16 @@ public class StratUtil {
 
         jpMid.add(jpMidLeft);
         jpMid.add(jpMidRight);
+
+        JButton jbPlay = new JButton("Play");
+        jbPlay.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                rm.nextRound();
+            }
+        });
+
+        jpBot.add(jbPlay);
 
         jp.add(jpTop);
         jp.add(jpMid);

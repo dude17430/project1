@@ -14,6 +14,7 @@ public class RoundManager {
     private long lastSpawnTime;
     private long spawnLimiter;
     private ArrayList<Integer> spawnArray;
+    private boolean moveOn;
 
     public RoundManager(StratUtil su){
         this.su = su;
@@ -22,6 +23,7 @@ public class RoundManager {
         lastSpawnTime = System.currentTimeMillis();
         spawnArray = new ArrayList<Integer>();
         calcNewRound();
+        moveOn = false;
     }
 
     public int update(){
@@ -32,7 +34,8 @@ public class RoundManager {
                 su.spawnNewEnemy(spawnArray.get(0));
                 spawnArray.remove(0);
             } else {
-                if(su.getEnemyList().size() == 0){
+                if(su.getEnemyList().size() == 0 && moveOn == true){
+                    moveOn = false;
                     round++;
                     calcNewRound();
                 }
@@ -57,4 +60,5 @@ public class RoundManager {
         }
     }
 
+    public void nextRound() { moveOn = true; }
 }
