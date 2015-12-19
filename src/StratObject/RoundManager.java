@@ -49,7 +49,9 @@ public class RoundManager {
     public void calcNewRound(){
         for(int i = 0; i<round*4; i++){
             if(round > 1) {
-                double j = Math.floor(Math.random() * (round - 1) + (round + 1));
+                double j = ((round/3)+1);
+                System.out.println("j: "+j);
+                System.out.println("calc: "+((round/3)+1));
                 spawnArray.add((int) j);
             } else { spawnArray.add(1); }
         }

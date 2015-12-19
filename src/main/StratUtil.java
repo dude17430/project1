@@ -121,7 +121,6 @@ public class StratUtil {
         towerthreeList = new ArrayList();
         towerfourList = new ArrayList();
         enemyList = new ArrayList();
-
     }
 
     public void update() {
@@ -158,10 +157,10 @@ public class StratUtil {
         }
 //        -------------add enemies here----------------
 //      steady spawn timer - REMEMBER: COMMENT/UNCOMMENT ROUND UPDATING
-        if(System.currentTimeMillis()-testTimer>2000){
-            testTimer = System.currentTimeMillis();
-            spawnNewEnemy(2);
-        }
+//        if(System.currentTimeMillis()-testTimer>2000){
+//            testTimer = System.currentTimeMillis();
+//            spawnNewEnemy(2);
+//        }
 //        if (testEnemy){
 //            enemyList.add(new Enemy(mp.getPath(), 4));
 //            testEnemy = false;
