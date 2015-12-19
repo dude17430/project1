@@ -58,7 +58,17 @@ public class Enemy {
     public void setDead(Boolean b) { dead = b; }//insta-kill.... for use l8r
     public int getRadius() { return radius; }//collision/graphics
     public int getStrength() { return strength; }//for graphics
-    public double getDistance(int dx, int dy){
+
+    public double get_dx(double dx){
+        dx+=30;
+        return  (x - dx);
+    }
+    public double get_dy(double dy){
+        dy+=30;
+        return  (y - dy);
+    }
+
+    public double getDistance(double dx, double dy){
         dx+=30;
         dy+=30;
         dx = (x - dx);//gets the x distance between the tower and enemy

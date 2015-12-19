@@ -25,6 +25,7 @@ public class TowerFour {
         if(!(su.getEnemyList().isEmpty()) && checkForEnemies()){
             if(System.currentTimeMillis()-lastShot>500){
                 lastShot = System.currentTimeMillis();
+
                 su.newProjectile("t4",x+30,y+30);
             }
         }

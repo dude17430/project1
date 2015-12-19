@@ -40,31 +40,21 @@ public class StratCalc {
     public double[] projectilePather(TowerProjectile tp){
 
 
+         //get first enemy
+            Enemy e = su.getEnemyList().get(18);
+
+
         //Find the absolute closest enemy
 
-//        Enemy e = su.getEnemyList().get(0);
-//        double dx = (e.getX() - towerX);//gets the x distance between the tower and enemy
-//        double dy = (e.getY() - towerY);//gets the y distance between the tower and enemy
-//        double distance = Math.sqrt((dx*dx)+(dy*dy)); //gets the absolute distance between the tower and enemy
-//        double newDistance;
-//
-//        if(su.getEnemyList().size()>1) {
-//            for (int i = 1; i < su.getEnemyList().size(); i++) {
-//                dx = (su.getEnemyList().get(i).getX() - towerX);//gets the x distance between the tower and the next enemy
-//                dy = (su.getEnemyList().get(i).getY() - towerY);//gets the y distance between the tower and the next enemy
-//                newDistance = Math.sqrt((dx * dx) + (dy * dy)); //gets the absolute distance between the tower the next and enemy
-//                if (newDistance < distance) {// if the old distance
-//                    e= su.getEnemyList().get(i);
-//                }
-//            }
-//        }
-//System.out.println(distance);
+
+
+
+
+
+
 
         //Find closest enemy that's farthest in the path
 
-
-
-        Enemy e = su.getEnemyList().get(0); //get first enemy
 
 
 

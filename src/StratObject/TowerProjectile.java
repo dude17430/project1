@@ -3,6 +3,8 @@ package StratObject;
 import main.StratUtil;
 import physics.StratCalc;
 
+import java.util.ArrayList;
+
 /**
  * Created by Dude on 12/13/2015.
  */
