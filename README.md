@@ -8,3 +8,5 @@ Program is a Personal Project
 ![Capture2](https://github.com/dude17430/project1/raw/master/img/other/Capture2.PNG)
 #Strategy Game: (in-dev)
 ![Capture3](https://github.com/dude17430/project1/raw/master/img/other/Capture3.PNG)
+#Strategy Game in-game: (in-dev)
+![Capture4](https://github.com/dude17430/project1/raw/master/img/other/Capture4.PNG)

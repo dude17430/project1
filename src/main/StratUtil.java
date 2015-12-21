@@ -35,6 +35,10 @@ public class StratUtil {
     private int TowerTwoCheckRadius;
     private int TowerThreeCheckRadius;
     private int TowerFourCheckRadius;
+    private int TowerOneCost;
+    private int TowerTwoCost;
+    private int TowerThreeCost;
+    private int TowerFourCost;
     private RoundManager rm;
     private long testTimer;
 
@@ -52,6 +56,10 @@ public class StratUtil {
         TowerTwoCheckRadius = 300;
         TowerThreeCheckRadius = 100;
         TowerFourCheckRadius = 300;
+        TowerOneCost = 100;
+        TowerTwoCost = 200;
+        TowerThreeCost = 100;
+        TowerFourCost = 1000;
 
         stratSidePane = makeStrategySidePane();
         testTimer = System.currentTimeMillis();
@@ -74,7 +82,7 @@ public class StratUtil {
         JPanel jpMidRight = new JPanel();
         jpMidLeft.setLayout(new BoxLayout(jpMidLeft, BoxLayout.Y_AXIS));
         jpMidRight.setLayout(new BoxLayout(jpMidRight, BoxLayout.Y_AXIS));
-        JPanel jpBot = new JPanel(new FlowLayout());
+        JPanel jpBot = new JPanel(new BorderLayout());
 
         stratMoneyL = new JLabel("Earnings: 0");
         stratRoundL = new JLabel("Round: 0");
@@ -93,10 +101,10 @@ public class StratUtil {
         T3L.setAlignmentX(Component.CENTER_ALIGNMENT);
         T4L.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        T1L.setToolTipText("<html> Tower1 <br> Hotkey: 1 </html>");
-        T2L.setToolTipText("<html> Tower2 <br> Hotkey: 2 </html>");
-        T3L.setToolTipText("<html> Tower3 <br> Hotkey: 3 </html>");
-        T4L.setToolTipText("<html> Tower4 <br> Hotkey: 4 </html>");
+        T1L.setToolTipText("<html> Tower1 <br> Cost: "+TowerOneCost+" <br> Hotkey: 1 </html>");
+        T2L.setToolTipText("<html> Tower2 <br> Cost: "+TowerTwoCost+" <br> Hotkey: 2 </html>");
+        T3L.setToolTipText("<html> Tower3 <br> Cost: "+TowerThreeCost+" <br> Hotkey: 3 </html>");
+        T4L.setToolTipText("<html> Tower4 <br> Cost: "+TowerFourCost+" <br> Hotkey: 4 </html>");
 
         jpMidLeft.add(T1L);
         jpMidRight.add(T2L);
@@ -107,6 +115,7 @@ public class StratUtil {
         jpMid.add(jpMidRight);
 
         JButton jbPlay = new JButton("Play");
+        jbPlay.setFocusable(false);
         jbPlay.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -114,7 +123,13 @@ public class StratUtil {
             }
         });
 
-        jpBot.add(jbPlay);
+        JLabel infoLabel = new JLabel("Mouse-Over Towers For Info");
+        JLabel exitL = new JLabel("'esc' to exit");
+        infoLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        exitL   .setHorizontalAlignment(SwingConstants.CENTER);
+        jpBot.add(infoLabel,BorderLayout.PAGE_START);
+        jpBot.add(jbPlay,BorderLayout.CENTER);
+        jpBot.add(exitL,BorderLayout.PAGE_END);
 
         jp.add(jpTop);
         jp.add(jpMid);
@@ -122,10 +137,9 @@ public class StratUtil {
         return jp;
     }
 
-    public JPanel getStratSidePane() { return stratSidePane; }
 
     public void newGame() {
-        money = 0;
+        money = 100;
         round = rm.resetRound();
         projectilesList = new ArrayList();
         toweroneList = new ArrayList();
@@ -220,6 +234,8 @@ public class StratUtil {
         enemyList.add(new Enemy(mp.getPath(), strength)); //adds a new enemy to the board with the path <path> and strength (int)
     }
 
+    public void addMoney(int i) { money += i; }
+
     public ArrayList<TowerOne> getToweroneList() { return toweroneList; }
     public ArrayList<TowerTwo> getTowertwoList() { return towertwoList; }
     public ArrayList<TowerThree> getTowerthreeList() { return towerthreeList; }
@@ -228,9 +244,14 @@ public class StratUtil {
     public int getTowerTwoCheckRadius() { return TowerTwoCheckRadius; }
     public int getTowerThreeCheckRadius() { return TowerThreeCheckRadius; }
     public int getTowerFourCheckRadius() { return TowerFourCheckRadius; }
-    public ArrayList<Enemy> getEnemyList() { return enemyList; }
-    public ArrayList<TowerProjectile> getProjectileList() { return projectilesList; }
-    public StratCalc getSC() { return sc; }
-    public void setMap(int i) throws IOException { mp= new MapFunction(i); }
+    public int getTowerOneCost() {return TowerOneCost;}
+    public int getTowerTwoCost() {return TowerTwoCost;}
+    public int getTowerThreeCost() {return TowerThreeCost;}
+    public int getTowerFourCost() {return TowerFourCost;}
     public Game getGame(){ return game; }
+    public StratCalc getSC() { return sc; }
+    public JPanel getStratSidePane() { return stratSidePane; }
+    public ArrayList<Enemy> getEnemyList() { return enemyList; }
+    public void setMap(int i) throws IOException { mp= new MapFunction(i); }
+    public ArrayList<TowerProjectile> getProjectileList() { return projectilesList; }
 }
