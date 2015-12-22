@@ -24,46 +24,44 @@ public class MapFunction {
         path = new ArrayList<ArrayList<Integer>>();
         coordinates = new ArrayList<Integer>();
 
-                    populateMap(n);
+        populateMap(n);
 
+    }
+
+    public void populateMap(int mapNum) throws IOException {
+
+        BufferedImage mapIMG = ImageIO.read(getClass().getClassLoader().getResource("strat/map"+mapNum+"_path.jpg"));
+        int width = mapIMG.getWidth();
+        int height = mapIMG.getHeight();
+        pathOffset = ((width-800)/2);
+
+        for (int x = 0; x < width; x++) {
+            ArrayList<Integer> map_y = new ArrayList<Integer>();
+            for (int y = 0; y < height; y++) {
+
+                Color mycolor = new Color(mapIMG.getRGB(x,y));
+                int red = mycolor.getRed();
+                int green = mycolor.getGreen();
+                int blue = mycolor.getBlue();
+
+                if( red<=15 && green>=240 && blue<=15 ){
+                    map_y.add(2);
+                    addPathCoordinates(x,y);
                 }
-
-            public void populateMap(int mapNum) throws IOException {
-
-                BufferedImage mapIMG = ImageIO.read(getClass().getClassLoader().getResource("strat/map"+mapNum+"_path.jpg"));
-                int width = mapIMG.getWidth();
-                int height = mapIMG.getHeight();
-                pathOffset = ((width-800)/2);
-
-
-                for (int x = 0; x < width; x++) {
-                    ArrayList<Integer> map_y = new ArrayList<Integer>();
-                    for (int y = 0; y < height; y++) {
-
-                        Color mycolor = new Color(mapIMG.getRGB(x,y));
-                        int red = mycolor.getRed();
-                        int green = mycolor.getGreen();
-                        int blue = mycolor.getBlue();
-
-                        if( red<=15 && green>=240 && blue<=15 ){
-                            map_y.add(2);
-                            addPathCoordinates(x,y);
-                        }
-                        else if( red<=15 && green<=15 && blue<=15 ){
-                            map_y.add(1);
-                        }
-                        else if( red>=240 && green<=15 && blue<=15 ){
-                            map_y.add(-1);
-                        }
-                        else{
-                            map_y.add(0);
-                        }
-                    }
-                    map.add(map_y);
+                else if( red<=15 && green<=15 && blue<=15 ){
+                    map_y.add(1);
                 }
-                findPath();
+                else if( red>=240 && green<=15 && blue<=15 ){
+                    map_y.add(-1);
+                }
+                else{
+                    map_y.add(0);
+                }
             }
-
+            map.add(map_y);
+        }
+        findPath();
+    }
 
     public void findPath(){
         int j = 0;
@@ -158,6 +156,8 @@ public class MapFunction {
     that i want to do is when an enemy decreases strength they are able to spawn a new enemy at a given offset
     so you would need to create a map for a given x,y and offset then return it so we can spawn the enemy where
     supposed to and give him the map
+
+    unsure how to go about checking path coordinates in my checkMouseTowerValidity() in StratUtil
      */
 
 }

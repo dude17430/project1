@@ -40,6 +40,7 @@ public class StratUtil {
     private int TowerThreeCost;
     private int TowerFourCost;
     private RoundManager rm;
+    private boolean mouseTowerValidity;
     private long testTimer;
 
     public StratUtil(Game game){
@@ -151,6 +152,7 @@ public class StratUtil {
 
     public void update() {
         round = rm.update();
+        checkMouseTowerValidity();
         for(Iterator<TowerOne> it = toweroneList.iterator(); it.hasNext();){
             TowerOne temp = it.next();
             temp.update();
@@ -181,6 +183,7 @@ public class StratUtil {
                 it.remove();
             }
         }
+        
 //        -------------add enemies here----------------
 //      steady spawn timer - REMEMBER: COMMENT/UNCOMMENT ROUND UPDATING
 //        if(System.currentTimeMillis()-testTimer>2000){
@@ -191,7 +194,15 @@ public class StratUtil {
 //            enemyList.add(new Enemy(mp.getPath(), 4));
 //            testEnemy = false;
 //        }
+        
         updateStats();//side pane
+    }
+
+    private void checkMouseTowerValidity() {
+        if(game.getKeyManager().getToweronmouse() != null){
+            //get mouse, compare distance to path coordinates
+        }
+        mouseTowerValidity = false;
     }
 
     public void newProjectile(String s, int x, int y) {
@@ -261,5 +272,9 @@ public class StratUtil {
 
     public int getMoney() {
         return money;
+    }
+
+    public boolean isMouseTowerValidity() {
+        return mouseTowerValidity;
     }
 }
