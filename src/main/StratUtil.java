@@ -114,7 +114,7 @@ public class StratUtil {
         jpMid.add(jpMidLeft);
         jpMid.add(jpMidRight);
 
-        JButton jbPlay = new JButton("Play");
+        JButton jbPlay = new JButton("Next Round");
         jbPlay.setFocusable(false);
         jbPlay.addActionListener(new ActionListener() {
             @Override
@@ -215,15 +215,19 @@ public class StratUtil {
     public void newTower(String s) {
         switch (s){
             case "t1":
+                money -= TowerOneCost;
                 toweroneList.add(new TowerOne(game.getMouseX()-30,game.getMouseY()-30,this,TowerOneCheckRadius));
                 break;
             case "t2":
+                money -= TowerTwoCost;
                 towertwoList.add(new TowerTwo(game.getMouseX()-30,game.getMouseY()-30,this,TowerTwoCheckRadius));
                 break;
             case "t3":
+                money -= TowerThreeCost;
                 towerthreeList.add(new TowerThree(game.getMouseX()-30,game.getMouseY()-30,this,TowerThreeCheckRadius));
                 break;
             case "t4":
+                money -= TowerFourCost;
                 towerfourList.add(new TowerFour(game.getMouseX()-30,game.getMouseY()-30,this,TowerFourCheckRadius));
                 break;
         }
@@ -254,4 +258,8 @@ public class StratUtil {
     public ArrayList<Enemy> getEnemyList() { return enemyList; }
     public void setMap(int i) throws IOException { mp= new MapFunction(i); }
     public ArrayList<TowerProjectile> getProjectileList() { return projectilesList; }
+
+    public int getMoney() {
+        return money;
+    }
 }

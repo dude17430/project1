@@ -162,5 +162,6 @@ public class Game {
     public int getGameState(){
         return gameState;
     }
+    public StratUtil getSu() {return su; }
 
 }

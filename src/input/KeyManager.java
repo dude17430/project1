@@ -192,7 +192,8 @@ public class KeyManager implements KeyListener{
                     break;
             }
         }
-        else if (game.getGameState() == 10){//pre
+        //----------Pre Game
+        else if (game.getGameState() == 10){
             switch (e.getKeyCode()){
                 case 27:
                     try {
@@ -202,18 +203,15 @@ public class KeyManager implements KeyListener{
                     }
                     break;
                 case 32:
-                    try {
-                        game.changeGameState(11);
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }
+                    try { game.changeGameState(11); } catch (IOException e1) { e1.printStackTrace(); }
                     break;
                 default:
                     System.out.println("Unknown Key Pressed - Char: '"+e.getKeyChar()+"' - Code: '"+e.getKeyCode()+"'");
                     break;
             }
         }
-        else if (game.getGameState() == 11){//setup
+        //----------Strat Setup
+        else if (game.getGameState() == 11){
             switch (e.getKeyCode()){
                 case 27:
                     try {
@@ -242,12 +240,13 @@ public class KeyManager implements KeyListener{
                     break;
             }
         }
-        else if (game.getGameState() == 12){//strat
+        //----------Strat Game
+        else if (game.getGameState() == 12){
             switch (e.getKeyCode()){
                 case 27:
                     if(toweronmouse != null){
                         toweronmouse = null;
-                    }else{
+                    } else {
                         try {
                             game.changeGameState(11);
                         } catch (IOException e1) {
@@ -256,23 +255,23 @@ public class KeyManager implements KeyListener{
                     }
                     break;
                 case 80:
-                    try {
-                        game.changeGameState(13);
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }
+                    try { game.changeGameState(13); } catch (IOException e1) { e1.printStackTrace(); }
                     break;
                 case 49:
-                    toweronmouse = "t1";
+                    if(game.getSu().getMoney()>=game.getSu().getTowerOneCost()){
+                        toweronmouse = "t1"; }
                     break;
                 case 50:
-                    toweronmouse = "t2";
+                    if(game.getSu().getMoney()>=game.getSu().getTowerTwoCost()){
+                        toweronmouse = "t2"; }
                     break;
                 case 51:
-                    toweronmouse = "t3";
+                    if(game.getSu().getMoney()>=game.getSu().getTowerThreeCost()){
+                        toweronmouse = "t3"; }
                     break;
                 case 52:
-                    toweronmouse = "t4";
+                    if(game.getSu().getMoney()>=game.getSu().getTowerFourCost()){
+                        toweronmouse = "t4"; }
                     break;
                 case 53:
                     System.out.println("X: "+game.getMouseX()+"Y: "+game.getMouseY());
@@ -282,14 +281,11 @@ public class KeyManager implements KeyListener{
                     break;
             }
         }
+        //----------About
         else if (game.getGameState() == 100){
             switch (e.getKeyCode()) {
                 case 27:
-                    try {
-                        game.changeGameState(0);
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }
+                    try { game.changeGameState(0); } catch (IOException e1) { e1.printStackTrace(); }
                     break;
                 default:
                     System.out.println("Unknown Key Pressed - Char: '"+e.getKeyChar()+"' - Code: '"+e.getKeyCode()+"'");

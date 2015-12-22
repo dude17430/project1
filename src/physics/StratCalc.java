@@ -33,7 +33,6 @@ public class StratCalc {
                 e.collided();//strength-- OR kill
                 su.addMoney(10);
                 tp.setDead(true);
-                System.out.println("projectile collided with enemy!");
             }
         }
     }
