@@ -78,7 +78,7 @@ public class GraphicsManager extends JComponent {
         //
         map1 = ImageIO.read(getClass().getClassLoader().getResource("strat/map1_perty.jpg"));
         map1Thumb = ImageIO.read(getClass().getClassLoader().getResource("strat/map1_thumb.jpg"));
-        map2 = ImageIO.read(getClass().getClassLoader().getResource("strat/map2.jpg"));
+        map2 = ImageIO.read(getClass().getClassLoader().getResource("strat/map2_perty.jpg"));
         map2Thumb = ImageIO.read(getClass().getClassLoader().getResource("strat/map2_thumb.jpg"));
         t1 = ImageIO.read(getClass().getClassLoader().getResource("strat/t1.png"));
         t2 = ImageIO.read(getClass().getClassLoader().getResource("strat/t2.png"));
